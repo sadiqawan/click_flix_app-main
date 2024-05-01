@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
 
+import 'casting_screen/casting_screen.dart';
+
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({super.key});
@@ -19,7 +21,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   List page=[
     ExploerScreen(),
     ModelsScreen(),
-    ExploerScreen(),
+    CastingScreen(),
     ExploerScreen(),
   ];
   final iconList = <IconData>[

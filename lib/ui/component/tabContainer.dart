@@ -10,13 +10,21 @@ final  String text;
 
 Function() onPress;
 final Color textColor;
+
 final LinearGradient? linerGradient;
+
+var  width;
+
+
+
 
   TabContainer({super.key,
     required this.textColor,
     required this.text,
     this.linerGradient,
-    required this.onPress
+    required this.onPress,
+    this.width
+
   });
 
   @override
@@ -24,6 +32,7 @@ final LinearGradient? linerGradient;
     return Padding(
       padding:  const EdgeInsets.only(left: 3.0,right: 3.0,top: 2,bottom: 2),
       child: Container(
+        width: width,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
