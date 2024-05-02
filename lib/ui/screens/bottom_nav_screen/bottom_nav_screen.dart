@@ -2,6 +2,7 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/exploer_screen/exploer_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/models_screen/models_screen.dart';
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -22,7 +23,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     ExploerScreen(),
     ModelsScreen(),
     CastingScreen(),
-    ExploerScreen(),
+    SettingScreen(),
   ];
   final iconList = <IconData>[
     TablerIcons.man,

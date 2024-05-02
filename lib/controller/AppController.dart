@@ -4,6 +4,7 @@ class AppController extends GetxController {
   var isChecked = false.obs;
   var isFav = false.obs;
   var index = 0.obs;
+  var isMonthly="false".obs;
 
   var gender = "Select".obs;
 

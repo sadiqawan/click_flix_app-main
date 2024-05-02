@@ -14,6 +14,11 @@ import 'const_colors.dart';
       fontSize:24,
       fontWeight:FontWeight.w700
     );
+    var mediumStyleInter= GoogleFonts.inter(
+      color:ConstColor.primaryColor.value,
+      fontSize:24,
+      fontWeight:FontWeight.w700
+    );
     var normalStyle= GoogleFonts.raleway(
       color:ConstColor.primaryColor.value,
       fontSize:16,
