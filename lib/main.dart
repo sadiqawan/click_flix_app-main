@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'controller/AppController.dart';
 
@@ -18,15 +19,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appController =Get.put(AppController());
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Click Flex',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+    return ResponsiveSizer(builder: (BuildContext , Orientation , ScreenType ) {
+      return GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Click Flex',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
         home: const SplashScreen(),
-       // home: const BottomNavScreen(),
+        // home: const BottomNavScreen(),
+      );
+    },
+
     );
   }
 }

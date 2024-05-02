@@ -255,7 +255,9 @@ class _UpgradeAccountScreenState extends State<UpgradeAccountScreen> {
                   ),
 
                   SizedBox(height: 40,),
-                  CommonButton(onPress: (){}, title: "Subscribe")
+                  CommonButton(onPress: (){
+                    Get.back();
+                  }, title: "Subscribe")
                 ],
               ),
             ),

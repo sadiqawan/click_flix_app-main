@@ -11,6 +11,7 @@ import '../../../../controller/AppController.dart';
 import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/tabContainer.dart';
+import 'about_us_screen/about_us_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -75,7 +76,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         padding: const EdgeInsets.only(top: 24.0),
                         child: Container(
                           padding:
-                              EdgeInsets.only(left: 32, right: 24, top: 16, bottom: 16),
+                              EdgeInsets.only(left: 24, right: 24, top: 16, bottom: 16),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(
@@ -86,17 +87,17 @@ class _SettingScreenState extends State<SettingScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                height: height * .115,
-                                width: width * .190,
+                                height: 82,
+                                width:82,
                                 decoration: BoxDecoration(
                                     border: Border.all(width: 2, color: Colors.red),
                                     shape: BoxShape.circle,
-                                    image: DecorationImage(
+                                    image: const DecorationImage(
                                       image:
                                           AssetImage("assets/images/image_profile.png"),
                                     )),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 16,
                               ),
                               Column(
@@ -126,7 +127,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 16.0, top: 24.0),
+                            padding: const EdgeInsets.only(bottom: 12.0, top: 24.0),
                             child: Text(
                               "App",
                               style: desStyle,
@@ -199,7 +200,7 @@ class _SettingScreenState extends State<SettingScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 16.0, top: 48.0),
+                            padding: const EdgeInsets.only(bottom: 12.0, top: 40.0),
                             child: Text(
                               "Settings",
                               style: desStyle,
@@ -222,7 +223,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                     image: SvgPicture.asset(
                                         "assets/svg_images/about_setting.svg"),
                                     title: "About Us",
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Get.to(AboutUsScreen());
+                                    }),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                                   child: Divider(
