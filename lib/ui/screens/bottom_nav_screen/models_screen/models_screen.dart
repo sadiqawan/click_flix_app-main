@@ -376,7 +376,6 @@ class _ModelScreenState extends State<ModelScreen> {
         final location = appController.modelsData[index]['location'];
         return Container(
 
-
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
             image: DecorationImage(image: AssetImage(image),

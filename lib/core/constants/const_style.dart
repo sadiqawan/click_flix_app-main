@@ -24,5 +24,10 @@ import 'const_colors.dart';
       fontSize:14,
       fontWeight:FontWeight.w500
     );
+    var desStyleWithWhite= GoogleFonts.raleway(
+      color:ConstColor.primaryColor.value,
+      fontSize:14,
+      fontWeight:FontWeight.w500
+    );
 
 

@@ -12,4 +12,5 @@ class ConstColor{
   static var lightblackColor=   const Color(0xff333335).obs;
   static var gradientOneColor=   const Color(0xffA513B8).obs;
   static var gradientTwoColor=   const Color(0xffEA3B12).obs;
+  static var IconsColor=   const Color(0xffFFFFFF).obs;
 }
