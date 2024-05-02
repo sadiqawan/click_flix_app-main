@@ -99,7 +99,7 @@ class _ExploerScreenState extends State<ExploerScreen> {
                                 width: width * .190,
                               ),
                               Container(
-                                height: height * .095,
+                                height: height * .099,
                                 width: width * .170,
                                 decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
@@ -131,39 +131,42 @@ class _ExploerScreenState extends State<ExploerScreen> {
                             ],
                           ),
                           Expanded(
-                            child: ListView.builder(
-                                itemCount: rowData.length,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(left: 12.0),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Container(
-                                          height: height * .095,
-                                          width: width * .170,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  width: 2,
-                                                  color: Colors.red),
-                                              shape: BoxShape.circle,
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    rowData[index]['image']),
-                                              )),
-                                        ),
-                                        const SizedBox(
-                                          height: 4,
-                                        ),
-                                        Text(
-                                          rowData[index]['name'],
-                                          style: desStyle.copyWith(fontSize: 12),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                }),
+                            child: Container(
+                              height: 100,
+                              child: ListView.builder(
+                                  itemCount: rowData.length,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(left: 12.0),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Container(
+                                            height: height * .090,
+                                            width: width * .150,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    width: 2,
+                                                    color: Colors.red),
+                                                shape: BoxShape.circle,
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      rowData[index]['image']),
+                                                )),
+                                          ),
+                                          const SizedBox(
+                                            height: 4,
+                                          ),
+                                          Text(
+                                            rowData[index]['name'],
+                                            style: desStyle.copyWith(fontSize: 12),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }),
+                            ),
                           ),
                         ],
                       ),
