@@ -53,9 +53,9 @@ class _UpgradeAccountScreenState extends State<UpgradeAccountScreen> {
                       Get.back();
                     },
                   ),
-                  SizedBox(height: 34,),
+                   SizedBox(height: 34,),
                   Container(
-                    padding: EdgeInsets.only(top: 18,bottom: 40,left: 16,right: 16),
+                    padding: EdgeInsets.only(top: 12,bottom: 24,left: 16,right: 16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
@@ -155,7 +155,7 @@ class _UpgradeAccountScreenState extends State<UpgradeAccountScreen> {
                   ),
                   SizedBox(height: 8,),
                   Container(
-                    padding: EdgeInsets.only(top: 18,bottom: 40,left: 16,right: 16),
+                    padding: EdgeInsets.only(top: 12,bottom: 24,left: 16,right: 16),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
@@ -254,7 +254,7 @@ class _UpgradeAccountScreenState extends State<UpgradeAccountScreen> {
                     ),
                   ),
 
-                  SizedBox(height: 40,),
+                  SizedBox(height: 32,),
                   CommonButton(onPress: (){
                     Get.back();
                   }, title: "Subscribe")

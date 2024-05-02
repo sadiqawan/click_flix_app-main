@@ -12,6 +12,7 @@ import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/tabContainer.dart';
 import 'about_us_screen/about_us_screen.dart';
+import 'contact_us_screen/contact_us_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -234,10 +235,13 @@ class _SettingScreenState extends State<SettingScreen> {
                                   ),
                                 ),
                                 CustomListTile(
+
                                     image: SvgPicture.asset(
                                         "assets/svg_images/contact_setting.svg"),
                                     title: "Contact Us",
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Get.to(ContactUsScreen());
+                                    }),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                                   child: Divider(

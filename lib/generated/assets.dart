@@ -32,11 +32,14 @@ class Assets {
   static const String svgImagesApple = 'assets/svg_images/apple.svg';
   static const String svgImagesAvatar = 'assets/svg_images/Avatar.svg';
   static const String svgImagesBgImage = 'assets/svg_images/bg_image.svg';
+  static const String svgImagesCallChat = 'assets/svg_images/call_chat.svg';
   static const String svgImagesCasting = 'assets/svg_images/casting.svg';
   static const String svgImagesContactSetting = 'assets/svg_images/contact_setting.svg';
   static const String svgImagesExplore = 'assets/svg_images/explore.svg';
   static const String svgImagesFaceBook = 'assets/svg_images/face_book.svg';
   static const String svgImagesGoogle = 'assets/svg_images/google.svg';
+  static const String svgImagesGrayInsta = 'assets/svg_images/gray_insta.svg';
+  static const String svgImagesGreyFacebook = 'assets/svg_images/grey_facebook.svg';
   static const String svgImagesIconAdd = 'assets/svg_images/icon_add.svg';
   static const String svgImagesIconBack = 'assets/svg_images/icon_back.svg';
   static const String svgImagesIconComment = 'assets/svg_images/icon_comment.svg';
@@ -52,12 +55,17 @@ class Assets {
   static const String svgImagesImageFour = 'assets/svg_images/image_four.svg';
   static const String svgImagesImageThree = 'assets/svg_images/image_three.svg';
   static const String svgImagesImageTwo = 'assets/svg_images/image_two.svg';
+  static const String svgImagesInfoIcon = 'assets/svg_images/info_icon.svg';
   static const String svgImagesLangaugeSetting = 'assets/svg_images/langauge_setting.svg';
   static const String svgImagesMenu = 'assets/svg_images/menu.svg';
+  static const String svgImagesMessageLogo = 'assets/svg_images/message_logo.svg';
   static const String svgImagesModel = 'assets/svg_images/model.svg';
   static const String svgImagesMyCastingSetting = 'assets/svg_images/my_casting_setting.svg';
   static const String svgImagesMyWallet = 'assets/svg_images/my_wallet.svg';
   static const String svgImagesPhoneNumber = 'assets/svg_images/phone_number.svg';
+  static const String svgImagesSnapchat = 'assets/svg_images/snapchat.svg';
+  static const String svgImagesStreetIcon = 'assets/svg_images/street_icon.svg';
+  static const String svgImagesTiktok = 'assets/svg_images/tiktok.svg';
   static const String svgImagesUpgradeSetting = 'assets/svg_images/upgrade_setting.svg';
 
 }
