@@ -34,6 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
       body: Stack(
         children: [
+
           SizedBox(
             width: double.infinity,
             height: double.infinity,

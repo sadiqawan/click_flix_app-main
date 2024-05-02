@@ -66,7 +66,7 @@ class _ModelsScreenState extends State<ModelsScreen> {
                             width: width * .032,
                             height: height * .032,
                           ),
-                          Spacer(),
+                          const Spacer(),
                           SvgPicture.asset(
                             "assets/svg_images/icon_search.svg",
                             width: width * .032,
@@ -184,7 +184,7 @@ class _ModelsScreenState extends State<ModelsScreen> {
                           width: Get.width,
                           height: Get.height * 0.056,
                           child: ListView.builder(
-                            physics: ScrollPhysics(),
+                            physics: const ScrollPhysics(),
                               scrollDirection: Axis.horizontal,
                               itemCount: list.length,
                               itemBuilder: (context, index) {
@@ -202,7 +202,7 @@ class _ModelsScreenState extends State<ModelsScreen> {
                                           ConstColor.gradientOneColor.value,
                                           ConstColor.gradientTwoColor.value,
                                         ]
-                                    ):   LinearGradient(
+                                    ):   const LinearGradient(
                                         begin:Alignment.topLeft,
                                         end: Alignment.topRight,
                                         colors: [
@@ -334,8 +334,6 @@ class _ModelsScreenState extends State<ModelsScreen> {
 }
 
 
-
-
 class ModelScreen extends StatefulWidget {
   const ModelScreen({super.key});
 
@@ -363,7 +361,7 @@ class _ModelScreenState extends State<ModelScreen> {
     final height = MediaQuery.of(context).size.height;
     final commentsController = TextEditingController();
     return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 8,
         mainAxisSpacing: 8,

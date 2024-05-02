@@ -1,4 +1,5 @@
 import 'package:click_flex_ui/ui/component/custom_button.dart';
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/profile_screen/profile_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/upgrade_account/upgrade_account.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -75,6 +76,7 @@ class _SettingScreenState extends State<SettingScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 24.0),
+<<<<<<< Updated upstream
                         child: Container(
                           padding:
                               EdgeInsets.only(left: 24, right: 24, top: 16, bottom: 16),
@@ -121,6 +123,60 @@ class _SettingScreenState extends State<SettingScreen> {
                                 color: ConstColor.greyColor.value,
                               )
                             ],
+=======
+                        child: InkWell(
+                          onTap: (){
+                            print('Calling the profile page');
+                            Get.to(profile_screen());
+                          },
+                          child: Container(
+                            padding:
+                                EdgeInsets.only(left: 32, right: 24, top: 16, bottom: 16),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  width: .5,
+                                  color: ConstColor.greyColor.value,
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: height * .115,
+                                  width: width * .190,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 2, color: Colors.red),
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image:
+                                            AssetImage("assets/images/image_profile.png"),
+                                      )),
+                                ),
+                                SizedBox(
+                                  width: 16,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Mohamed Ahmed",
+                                      style: desStyle.copyWith(
+                                          color: ConstColor.primaryColor.value),
+                                    ),
+                                    Text(
+                                      "Cairo, Egypt",
+                                      style: desStyle,
+                                    )
+                                  ],
+                                ),
+                                Spacer(),
+                                Icon(
+                                  Icons.arrow_forward_ios_outlined,
+                                  color: ConstColor.greyColor.value,
+                                )
+                              ],
+                            ),
+>>>>>>> Stashed changes
                           ),
                         ),
                       ),

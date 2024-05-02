@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../component/custom_text_field.dart';
+import '../notification_screen/notification_screen.dart';
 
 class ExploerScreen extends StatefulWidget {
   const ExploerScreen({super.key});
@@ -73,10 +74,16 @@ class _ExploerScreenState extends State<ExploerScreen> {
                         SizedBox(
                           width: width * .040,
                         ),
-                        SvgPicture.asset(
-                          "assets/svg_images/icon_notification.svg",
-                          width: width * .040,
-                          height: height * .032,
+                        InkWell(
+                          onTap: (){
+                            print("Towards Notifications Screen");
+                            Get.to(notifications_screen());
+                          },
+                          child: SvgPicture.asset(
+                            "assets/svg_images/icon_notification.svg",
+                            width: width * .040,
+                            height: height * .032,
+                          ),
                         ),
                       ],
                     ),
