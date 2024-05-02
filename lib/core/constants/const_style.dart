@@ -1,12 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'const_colors.dart';
 
 
     var headingStyle= GoogleFonts.raleway(
       color:ConstColor.primaryColor.value,
-      fontSize:32,
+      fontSize:32.sp,
       fontWeight:FontWeight.w700
     );
     var mediumStyle= GoogleFonts.raleway(
@@ -34,5 +35,10 @@ import 'const_colors.dart';
       fontSize:14,
       fontWeight:FontWeight.w500
     );
+var xMediumStyleInter= GoogleFonts.raleway(
+    color:ConstColor.primaryColor.value,
+    fontSize:20,
+    fontWeight:FontWeight.w600
+);
 
 

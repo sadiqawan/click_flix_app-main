@@ -41,7 +41,7 @@ class _OnBoardingState extends State<OnBoarding> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage("assets/images/bg_image.png")
@@ -55,7 +55,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 child: PageView(
                   controller: controller,
                   children:  [
-                    ImageSlider(
+                    const ImageSlider(
                       title: 'Create Our Profile',
                       image: 'assets/images/image_one.png',
                       subtitle:

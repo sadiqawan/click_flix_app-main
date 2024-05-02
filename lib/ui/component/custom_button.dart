@@ -1,4 +1,6 @@
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,7 +10,7 @@ import '../../core/constants/const_colors.dart';
 
 
 class CommonButton extends StatelessWidget {
-  Function() onPress;
+  VoidCallback onPress;
   String title;
 
   CommonButton({super.key,required this.onPress,required this.title});

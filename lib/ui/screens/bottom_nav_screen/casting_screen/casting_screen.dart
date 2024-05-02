@@ -1,5 +1,7 @@
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/casting_screen/casting_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -34,8 +36,8 @@ class _CastingScreenState extends State<CastingScreen> {
         body: Padding(
           padding: EdgeInsets.only(
             top: height * .052,
-            right: width * .056,
-            left: width * .056,
+            right: width * .040,
+            left: width * .030,
           ),
           child: Column(
             children: [
@@ -66,12 +68,12 @@ class _CastingScreenState extends State<CastingScreen> {
 
               //Tabs
               Padding(
-                padding: const EdgeInsets.only(bottom: 16.0, top: 24),
+                padding: const EdgeInsets.only(bottom: 10.0, top: 24),
                 child: Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24),
                       border: Border.all(color: ConstColor.greyColor.value)),
-                  width: Get.width,
+                  width: Get.width * .87,
                   height: Get.height * 0.056,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -148,81 +150,105 @@ class _CastingState extends State<Casting> {
       itemBuilder: (BuildContext context, int index) {
         final String image = appController.castingData[index]['image'];
         final String title = appController.castingData[index]['title'];
-        final String date = appController.castingData[index]['location'];
-        final String location = appController.castingData[index]['date'];
+        final String date = appController.castingData[index]['date'];
+        final String location = appController.castingData[index]['location'];
         final String status = appController.castingData[index]['status'];
 
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(),
-            height: 150,
+        return InkWell(
+          onTap: (){
+            Get.to(()=> CastingDetailScreen(
+              image: appController.castingData[index]['image'],
+              title: appController.castingData[index]['title'],
+              location: appController.castingData[index]['location'],
+              status: appController.castingData[index]['status'],
+              date: appController.castingData[index]['date'],
 
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(image), fit: BoxFit.cover)),
-                    height: 115,
-                    width: 115,
-                    // color: Colors.red,
+
+
+
+            ));
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: .5,
+                    color: ConstColor.greyColor.value,
+                  )),
+              height: 150,
+              width: double.infinity,
+
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(image), fit: BoxFit.cover),
+                          borderRadius: BorderRadius.circular(15)
+                      ),
+                      height: 115,
+                      width: 115,
+                      // color: Colors.red,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0, top: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 3.0),
-                        child: Text(title,style: normalStyle,),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.pin_drop_outlined,
-                              color: ConstColor.lightblackColor.value
-                          ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15.0, top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 3.0),
+                          child: Text(title,style: normalStyle,),
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.pin_drop_outlined,
+                                color: ConstColor.lightblackColor.value
+                            ),
+                           SizedBox(
+                              width: 20,
+                            ),
+                            Text(location,style: desStyleWithWhite,)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.date_range_outlined,
+                                color: ConstColor.lightblackColor.value
+                            ),
+                             SizedBox(
+                              width: 20,
+                            ),
+                            Text(date,style: desStyleWithWhite,)
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Icon(
+                              Icons.currency_exchange,
+                                color: ConstColor.lightblackColor.value
+                            ),
                           SizedBox(
-                            width: 20,
-                          ),
-                          Text(location,style: desStyleWithWhite,)
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.date_range_outlined,
-                              color: ConstColor.lightblackColor.value
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(date,style: desStyleWithWhite,)
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.currency_exchange,
-                              color: ConstColor.lightblackColor.value
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(status,style: desStyleWithWhite,)
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ],
+                              width: 20,
+                            ),
+                            Text(status,style: desStyleWithWhite,)
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );
@@ -263,91 +289,117 @@ class _MyCastingState extends State<MyCasting> {
         final String status = appController.castingData[index]['status'];
 
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
           child: Container(
-            decoration: const BoxDecoration(),
-            height: 170,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  width: .5,
+                  color: ConstColor.greyColor.value,
+                )),
+            height: 180,
 
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
+
+            child: InkWell(
+              onTap: (){
+                Get.to(()=> CastingDetailScreen(
+                  image: appController.castingData[index]['image'],
+                  title: appController.castingData[index]['title'],
+                  location: appController.castingData[index]['location'],
+                  status: appController.castingData[index]['status'],
+                  date: appController.castingData[index]['date'],
+                ));
+
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(image), fit: BoxFit.cover)),
-                        height: 115,
-                        width: 115,
-                        // color: Colors.red,
-                      ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0,top: 5),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(image), fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(15)
+                            ),
+                            
+                            height: 115,
+                            width: 115,
+                            // color: Colors.red,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15.0, top: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 3.0),
+                                child: Text(title,style: normalStyle,),
+                              ),
+                              SizedBox(height: 8,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                      Icons.pin_drop_outlined,
+                                      color: ConstColor.lightblackColor.value
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(location,style: desStyleWithWhite,)
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                      Icons.date_range_outlined,
+                                      color: ConstColor.lightblackColor.value
+                                  ),
+                                 SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(date,style: desStyleWithWhite,)
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Icon(
+                                      Icons.currency_exchange,
+                                      color: ConstColor.lightblackColor.value
+                                  ),
+                                 SizedBox(
+                                    width: 20,
+                                  ),
+                                  Text(status,style: desStyleWithWhite,)
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15.0, top: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      padding: const EdgeInsets.only(top: 5.0,left: 8),
+                      child: Row(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 3.0),
-                            child: Text(title,style: normalStyle,),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                  Icons.pin_drop_outlined,
-                                  color: ConstColor.lightblackColor.value
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(location,style: desStyleWithWhite,)
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                  Icons.date_range_outlined,
-                                  color: ConstColor.lightblackColor.value
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(date,style: desStyleWithWhite,)
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Icon(
-                                  Icons.currency_exchange,
-                                  color: ConstColor.lightblackColor.value
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(status,style: desStyleWithWhite,)
-                            ],
-                          ),
+                          const Icon(Icons.check_box,
+                            color: Colors.white,),
+                          SizedBox(width: 10,),
+                          const Text('Accepted',style:TextStyle(color: Colors.white),)
                         ],
                       ),
                     )
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 5.0,left: 8),
-                  child: const Row(
-                    children: [
-                      Icon(Icons.check_box,color: Colors.white,),
-                      SizedBox(width: 10,),
-                      Text('Accepted',style:TextStyle(color: Colors.white),)
-                    ],
-                  ),
-                )
-              ],
+              ),
             ),
           ),
         );
