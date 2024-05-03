@@ -9,8 +9,10 @@ class Assets {
   static const String imagesCastingImageOne = 'assets/images/casting_image_one.png';
   static const String imagesCastingImageThree = 'assets/images/casting_image_three.png';
   static const String imagesCastingImageTwo = 'assets/images/casting_image_two.png';
+  static const String imagesIconBack = 'assets/images/icon_back.png';
   static const String imagesIconDown = 'assets/images/icon_down.png';
   static const String imagesIconExploer = 'assets/images/icon_exploer.ico';
+  static const String imagesIconShare = 'assets/images/icon_share.png';
   static const String imagesImageDashOne = 'assets/images/image_dash_one.png';
   static const String imagesImageDashTwo = 'assets/images/image_dash_two.png';
   static const String imagesImageOne = 'assets/images/image_one.png';
@@ -37,6 +39,8 @@ class Assets {
   static const String svgImagesExplore = 'assets/svg_images/explore.svg';
   static const String svgImagesFaceBook = 'assets/svg_images/face_book.svg';
   static const String svgImagesGoogle = 'assets/svg_images/google.svg';
+  static const String svgImagesGrayInsta = 'assets/svg_images/gray_insta.svg';
+  static const String svgImagesGreyFacebook = 'assets/svg_images/grey_facebook.svg';
   static const String svgImagesIconAdd = 'assets/svg_images/icon_add.svg';
   static const String svgImagesIconBack = 'assets/svg_images/icon_back.svg';
   static const String svgImagesIconComment = 'assets/svg_images/icon_comment.svg';
@@ -52,12 +56,15 @@ class Assets {
   static const String svgImagesImageFour = 'assets/svg_images/image_four.svg';
   static const String svgImagesImageThree = 'assets/svg_images/image_three.svg';
   static const String svgImagesImageTwo = 'assets/svg_images/image_two.svg';
+  static const String svgImagesInstagram = 'assets/svg_images/instagram.svg';
   static const String svgImagesLangaugeSetting = 'assets/svg_images/langauge_setting.svg';
   static const String svgImagesMenu = 'assets/svg_images/menu.svg';
   static const String svgImagesModel = 'assets/svg_images/model.svg';
   static const String svgImagesMyCastingSetting = 'assets/svg_images/my_casting_setting.svg';
   static const String svgImagesMyWallet = 'assets/svg_images/my_wallet.svg';
   static const String svgImagesPhoneNumber = 'assets/svg_images/phone_number.svg';
+  static const String svgImagesSnapchat = 'assets/svg_images/snapchat.svg';
+  static const String svgImagesTiktok = 'assets/svg_images/tiktok.svg';
   static const String svgImagesUpgradeSetting = 'assets/svg_images/upgrade_setting.svg';
 
 }

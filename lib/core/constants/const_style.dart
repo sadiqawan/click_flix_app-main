@@ -1,13 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'const_colors.dart';
 
 
     var headingStyle= GoogleFonts.raleway(
       color:ConstColor.primaryColor.value,
-      fontSize:32.sp,
+      fontSize:32,
       fontWeight:FontWeight.w700
     );
     var mediumStyle= GoogleFonts.raleway(

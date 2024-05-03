@@ -1,7 +1,6 @@
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/casting_screen/casting_details_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 

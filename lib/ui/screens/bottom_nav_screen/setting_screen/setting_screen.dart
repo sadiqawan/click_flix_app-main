@@ -1,4 +1,6 @@
 import 'package:click_flex_ui/ui/component/custom_button.dart';
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/about_us_screen/about_us_screen.dart';
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/contact_us_screen/contact_us_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/upgrade_account/upgrade_account.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,7 @@ import '../../../../controller/AppController.dart';
 import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/tabContainer.dart';
+import '../../profile_screen/profile_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -35,7 +38,7 @@ class _SettingScreenState extends State<SettingScreen> {
       backgroundColor: Colors.black,
       body: Padding(
         padding: EdgeInsets.only(
-          top: height * .052,
+          top: height * .072,
           right: width * .056,
           left: width * .056,
         ),
@@ -85,16 +88,21 @@ class _SettingScreenState extends State<SettingScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
-                                height: height * .115,
-                                width: width * .190,
-                                decoration: BoxDecoration(
-                                    border: Border.all(width: 2, color: Colors.red),
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image:
-                                          AssetImage("assets/images/image_profile.png"),
-                                    )),
+                              InkWell(
+                                onTap:(){
+                                  Get.to(ProfileScreen());
+                                },
+                                child: Container(
+                                  height: height * .115,
+                                  width: width * .190,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 2, color: Colors.red),
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image:
+                                            AssetImage("assets/images/image_profile.png"),
+                                      )),
+                                ),
                               ),
                               SizedBox(
                                 width: 16,
@@ -222,7 +230,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                     image: SvgPicture.asset(
                                         "assets/svg_images/about_setting.svg"),
                                     title: "About Us",
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Get.to(AboutUsScreen());
+                                    }),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                                   child: Divider(
@@ -234,7 +244,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                     image: SvgPicture.asset(
                                         "assets/svg_images/contact_setting.svg"),
                                     title: "Contact Us",
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Get.to(ContactUsScreen());
+                                    }),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                                   child: Divider(
