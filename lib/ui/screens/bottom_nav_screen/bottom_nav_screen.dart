@@ -21,7 +21,7 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
 
-  List page=[
+  List page= const [
     ExploerScreen(),
     ModelsScreen(),
     CastingScreen(),
@@ -52,7 +52,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         child: FloatingActionButton(
 
           backgroundColor: Colors.transparent,
-         shape: CircleBorder(
+         shape: const CircleBorder(
            side: BorderSide(color: Colors.blueAccent)
          ),
         onPressed: () {
