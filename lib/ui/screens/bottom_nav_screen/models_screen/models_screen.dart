@@ -10,6 +10,7 @@ import '../../../../controller/AppController.dart';
 import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/tabContainer.dart';
+import '../new_post/new_post.dart';
 
 
 class ModelsScreen extends StatefulWidget {
@@ -61,10 +62,15 @@ class _ModelsScreenState extends State<ModelsScreen> {
                     children: [
                       Row(
                         children: [
-                          SvgPicture.asset(
-                            "assets/svg_images/icon_solor.svg",
-                            width: width * .032,
-                            height: height * .032,
+                          InkWell(
+                            onTap: (){
+                              Get.to(new_post());
+                            },
+                            child: SvgPicture.asset(
+                              "assets/svg_images/icon_solor.svg",
+                              width: width * .032,
+                              height: height * .032,
+                            ),
                           ),
                           Spacer(),
                           SvgPicture.asset(

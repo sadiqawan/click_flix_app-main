@@ -1,15 +1,12 @@
 import 'package:click_flex_ui/ui/screens/auth/splash_screen/splash_screen.dart';
-import 'package:click_flex_ui/ui/screens/bottom_nav_screen/bottom_nav_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-
 import 'controller/AppController.dart';
 
 void main() async{
  // await ScreenUtil.ensureScreenSize();
-
   runApp(const MyApp());
 }
 

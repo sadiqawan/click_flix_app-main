@@ -12,6 +12,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../component/custom_text_field.dart';
 import '../../notification_screen/notification_screen.dart';
+import '../../search_screen/search_screen.dart';
+import '../../story_screen/story_screen.dart';
+import '../camera_and_gallery_screen/camera_gallery_screen.dart';
 
 class ExploerScreen extends StatefulWidget {
   const ExploerScreen({super.key});
@@ -60,16 +63,27 @@ class _ExploerScreenState extends State<ExploerScreen> {
                     ),
                     child: Row(
                       children: [
-                        SvgPicture.asset(
-                          "assets/svg_images/icon_solor.svg",
-                          width: width * .032,
-                          height: height * .032,
+                        InkWell(
+                          onTap: (){
+              Get.to(camera_gallery_screen());
+            },
+                          child: SvgPicture.asset(
+                            "assets/svg_images/icon_solor.svg",
+                            width: width * .032,
+                            height: height * .032,
+                          ),
                         ),
                         Spacer(),
-                        SvgPicture.asset(
-                          "assets/svg_images/icon_search.svg",
-                          width: width * .032,
-                          height: height * .032,
+                        InkWell(
+                          onTap: (){
+                            print("Towards search screen");
+                            Get.to(search_screen());
+                          },
+                          child: SvgPicture.asset(
+                            "assets/svg_images/icon_search.svg",
+                            width: width * .032,
+                            height: height * .032,
+                          ),
                         ),
                         SizedBox(
                           width: width * .040,
@@ -146,18 +160,23 @@ class _ExploerScreenState extends State<ExploerScreen> {
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
-                                        Container(
-                                          height: height * .095,
-                                          width: width * .170,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  width: 2,
-                                                  color: Colors.red),
-                                              shape: BoxShape.circle,
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    rowData[index]['image']),
-                                              )),
+                                        InkWell(
+                                          onTap: (){
+                                    print("showing the story");
+                                    Get.to(story_screen());
+                                  },child: Container(
+                                            height: height * .095,
+                                            width: width * .170,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    width: 2,
+                                                    color: Colors.red),
+                                                shape: BoxShape.circle,
+                                                image: DecorationImage(
+                                                  image: AssetImage(
+                                                      rowData[index]['image']),
+                                                )),
+                                          ),
                                         ),
                                         const SizedBox(
                                           height: 4,

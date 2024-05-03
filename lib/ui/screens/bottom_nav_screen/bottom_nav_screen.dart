@@ -6,7 +6,9 @@ import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/settin
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:get/get.dart';
 
+import '../reel_screen/reel_screen.dart';
 import 'casting_screen/casting_screen.dart';
 
 
@@ -54,7 +56,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
            side: BorderSide(color: Colors.blueAccent)
          ),
         onPressed: () {
-
+            Get.to(reel_screen());
           },
           child: SvgPicture.asset("assets/svg_images/add.svg",width: 30,height: 30,),
 

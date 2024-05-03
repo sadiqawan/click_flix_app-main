@@ -105,7 +105,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                           title: Row(
                             children: [
                               Text(notif_list[index]['name'],style: GoogleFonts.raleway(
-                                  fontSize: 17,
+                                  fontSize: 15.5,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500
                               ),),
@@ -113,7 +113,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                                 width: width*0.02,
                               ),
                               Text(notif_list[index]['time'],style: GoogleFonts.raleway(
-                                  fontSize: 15,
+                                  fontSize: 12,
                                   color: Color(0xff848484),
                                   fontWeight: FontWeight.w400
                               ),),
