@@ -1,3 +1,4 @@
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/casting_screen/booking_talent_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/casting_screen/casting_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -230,7 +231,9 @@ Widget bottomSheet(BuildContext context, title, location, status, date) {
             ),
           ),
           SizedBox(height: 7,),
-          CommonButton(onPress: (){}, title: 'Apply Now',)
+          CommonButton(onPress: (){
+            Get.to(()=> const BookingTalentScreen());
+          }, title: 'Apply Now',)
 
 
 

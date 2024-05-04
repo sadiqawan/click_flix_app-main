@@ -1,4 +1,5 @@
 import 'package:click_flex_ui/ui/component/custom_button.dart';
+import 'package:click_flex_ui/ui/screens/auth/splash_screen/splash_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/about_us_screen/about_us_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/contact_us_screen/contact_us_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/upgrade_account/upgrade_account.dart';
@@ -268,16 +269,21 @@ class _SettingScreenState extends State<SettingScreen> {
 
                       Padding(
                         padding: const EdgeInsets.only(top: 24.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: ConstColor.redColor.value.withOpacity(.3))
-                          ),
-                          alignment: Alignment.center,
-                          width: width,
-                          height: 56,
-                          child: Text(
-                            "log out",style: normalStyle.copyWith(color: ConstColor.redColor.value),
+                        child: InkWell(
+                          onTap: (){
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SplashScreen()));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: ConstColor.redColor.value.withOpacity(.3))
+                            ),
+                            alignment: Alignment.center,
+                            width: width,
+                            height: 56,
+                            child: Text(
+                              "log out",style: normalStyle.copyWith(color: ConstColor.redColor.value),
+                            ),
                           ),
                         ),
                       ),

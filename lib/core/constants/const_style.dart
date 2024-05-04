@@ -41,3 +41,9 @@ var xMediumStyleInter= GoogleFonts.raleway(
 );
 
 
+var desStyleWithRed= GoogleFonts.raleway(
+    color:ConstColor.lightRed.value,
+    fontSize:14,
+    fontWeight:FontWeight.w500
+);
+
