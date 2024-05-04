@@ -142,43 +142,79 @@ class _BookingTalentScreen2State extends State<BookingTalentScreen2> {
               // ),
 
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               CompleteProfileComp(
                 label: 'Gender',
                 items: const ['Select', 'Option 2', 'Option 3', 'Option 4'],
               ),
               const SizedBox(
-                height: 5,
+                height: 10,
               ),
               CompleteProfileComp(
                 label: 'Ethnicity',
                 items: const ['Select', 'Option 2', 'Option 3', 'Option 4'],
               ),
               const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(width: 150,
+                    child:SimpleCustomTextFieldWithSuffixText(
+                      labelText: "Height From",
+                      controller: requirementController,
+                      hintText: 'Height From',
+                      suffix: 'Cm',
+                    ),
+                  ), SizedBox(width: 150,
+                    child:SimpleCustomTextFieldWithSuffixText(
+                      labelText: "Height to",
+                      controller: requirementController,
+                      hintText: 'Height to',
+                      suffix: 'Cm',
+
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(width: 150,
+                    child:SimpleCustomTextFieldWithSuffixText(
+                      labelText: "Height From",
+                      controller: requirementController,
+                      hintText: 'Age From',
+                      suffix: 'Year',
+                    ),
+                  ), SizedBox(width: 150,
+                    child:SimpleCustomTextFieldWithSuffixText(
+                      labelText: "Age to",
+                      controller: requirementController,
+                      hintText: 'Age to',
+                      suffix: 'Year',
+
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
                 height: 5,
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     Column(
-              //       children: [
-              //         CustomTextFieldWithImage2(controller: heightController, hintText: 'Height',),
-              //       ],
-              //     ), Column(
-              //       children: [
-              //         CustomTextFieldWithImage2(controller: heightController, hintText: 'Height',),
-              //       ],
-              //     ),
-              //   ],
-              // ),
-              const SizedBox(
-                height: 8,
-              ),
 
-              CommonButton(
-                onPress: () {},
-                title: 'Next',
+
+
+              Padding(
+                padding:  EdgeInsets.only(top: height *.3),
+                child: CommonButton(
+                  onPress: () {},
+                  title: 'Next',
+                ),
               )
             ],
           ),

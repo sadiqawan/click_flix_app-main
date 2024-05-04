@@ -136,3 +136,69 @@ class CommentsTextFieldWithImage2 extends StatelessWidget {
     );
   }
 }
+
+
+class SimpleCustomTextFieldWithSuffixText extends StatelessWidget {
+   final TextEditingController controller;
+  final String? suffix;
+  FocusNode? focusNode;
+  final String hintText;
+  final String? labelText;
+
+   SimpleCustomTextFieldWithSuffixText({
+    super.key,
+    this.focusNode,
+    required this.controller,
+    required this.hintText,
+    this.labelText,
+     this.suffix,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: 8,
+      ),
+      child: Container(
+        alignment: Alignment.center,
+        height: 48,
+        decoration: BoxDecoration(
+          // color: ConstColor.greyColor.value,
+            borderRadius: BorderRadius.circular(12)),
+        child: TextFormField(
+
+          focusNode: focusNode,
+          style: normalStyle,
+          // cursorColor: blueColor,
+          controller: controller,
+
+          decoration: InputDecoration(
+            label: Text(
+              labelText ?? "",
+            ),
+            labelStyle: desStyle,
+            contentPadding:
+            const EdgeInsets.symmetric(vertical: 12.0, horizontal: 12),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide(
+                color: ConstColor.greyColor.value,
+              ),
+            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+            suffixIcon: ClipRRect(
+              child: Padding(
+                padding: EdgeInsets.all(14),
+                child: Text(suffix!,style: desStyle ),
+              ),
+            ),
+            hintText: hintText,
+            hintStyle: desStyle.copyWith(
+                fontWeight: FontWeight.w400, color: ConstColor.greyColor.value),
+          ),
+        ),
+      ),
+    );
+  }
+}
