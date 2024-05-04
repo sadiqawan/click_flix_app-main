@@ -214,7 +214,7 @@ class _BookingTalentScreen2State extends State<BookingTalentScreen2> {
                 padding:  EdgeInsets.only(top: height *.3),
                 child: CommonButton(
                   onPress: () {
-                    Get.to(()=> BookAnAppointmentScreen ());
+                    Get.to(()=> const BookAnAppointmentScreen ());
                   },
                   title: 'Next',
                 ),

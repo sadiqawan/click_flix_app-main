@@ -56,7 +56,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   controller: controller,
                   children:  [
                     const ImageSlider(
-                      title: 'Create Our Profile',
+                      title: 'Create Yor Profile',
                       image: 'assets/images/image_one.png',
                       subtitle:
                       'add your best photos, details, and  instagram to showcase yourself and get scouted by brands, photographers and agencies',
