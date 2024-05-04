@@ -13,6 +13,7 @@ import '../../../component/custom_button.dart';
 import '../../../component/custom_text_field.dart';
 import '../../../component/pop_over.dart';
 import '../../../component/text.dart';
+import 'booking_talent_screen_2.dart';
 
 class BookingTalentScreen extends StatefulWidget {
   const BookingTalentScreen({super.key});
@@ -280,11 +281,13 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
                 items: const ['Select', 'Option 2', 'Option 3', 'Option 4'],
               ),
               const SizedBox(
-                height: 5,
+                height: 8,
               ),
         
               CommonButton(
-                onPress: () {},
+                onPress: () {
+                  Get.to(()=> BookingTalentScreen2());
+                },
                 title: 'Next',
               )
             ],
