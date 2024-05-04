@@ -144,6 +144,8 @@ class SimpleCustomTextFieldWithSuffixText extends StatelessWidget {
   FocusNode? focusNode;
   final String hintText;
   final String? labelText;
+  final TextInputType? keyBordType;
+
 
    SimpleCustomTextFieldWithSuffixText({
     super.key,
@@ -151,7 +153,7 @@ class SimpleCustomTextFieldWithSuffixText extends StatelessWidget {
     required this.controller,
     required this.hintText,
     this.labelText,
-     this.suffix,
+     this.suffix, this.keyBordType,
   });
 
   @override
@@ -167,6 +169,7 @@ class SimpleCustomTextFieldWithSuffixText extends StatelessWidget {
           // color: ConstColor.greyColor.value,
             borderRadius: BorderRadius.circular(12)),
         child: TextFormField(
+          keyboardType: keyBordType,
 
           focusNode: focusNode,
           style: normalStyle,
@@ -187,11 +190,9 @@ class SimpleCustomTextFieldWithSuffixText extends StatelessWidget {
               ),
             ),
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
-            suffixIcon: ClipRRect(
-              child: Padding(
-                padding: EdgeInsets.all(14),
-                child: Text(suffix!,style: desStyle ),
-              ),
+            suffixIcon: Padding(
+              padding: const EdgeInsets.only(top: 16.0),
+              child: Text(suffix!,style: desStyle ),
             ),
             hintText: hintText,
             hintStyle: desStyle.copyWith(

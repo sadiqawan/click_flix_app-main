@@ -3,16 +3,16 @@ import 'package:click_flex_ui/controller/AppController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
+
 import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/complete_profile_comp.dart';
 import '../../../component/custom_button.dart';
 import '../../../component/custom_text_field.dart';
-import '../../../component/pop_over.dart';
-import '../../../component/text.dart';
+
+import 'book_an_appointment_screen.dart';
 
 class BookingTalentScreen2 extends StatefulWidget {
   const BookingTalentScreen2({super.key});
@@ -87,7 +87,7 @@ class _BookingTalentScreen2State extends State<BookingTalentScreen2> {
                               endIndent: 15,
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Icons.check_circle_sharp,
                             color: Colors.red,
                           ),
@@ -192,7 +192,8 @@ class _BookingTalentScreen2State extends State<BookingTalentScreen2> {
                       hintText: 'Age From',
                       suffix: 'Year',
                     ),
-                  ), SizedBox(width: 150,
+                  ),
+                  SizedBox(width: 150,
                     child:SimpleCustomTextFieldWithSuffixText(
                       labelText: "Age to",
                       controller: requirementController,
@@ -212,7 +213,9 @@ class _BookingTalentScreen2State extends State<BookingTalentScreen2> {
               Padding(
                 padding:  EdgeInsets.only(top: height *.3),
                 child: CommonButton(
-                  onPress: () {},
+                  onPress: () {
+                    Get.to(()=> BookAnAppointmentScreen ());
+                  },
                   title: 'Next',
                 ),
               )
