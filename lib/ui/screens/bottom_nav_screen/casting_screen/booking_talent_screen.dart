@@ -1,13 +1,18 @@
 
+import 'package:click_flex_ui/controller/AppController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/complete_profile_comp.dart';
 import '../../../component/custom_button.dart';
 import '../../../component/custom_text_field.dart';
+import '../../../component/pop_over.dart';
+import '../../../component/text.dart';
 
 class BookingTalentScreen extends StatefulWidget {
   const BookingTalentScreen({super.key});
@@ -17,6 +22,8 @@ class BookingTalentScreen extends StatefulWidget {
 }
 
 class _BookingTalentScreenState extends State<BookingTalentScreen> {
+
+  AppController appController = Get.put(AppController());
   final titleController = TextEditingController();
   final requirementController = TextEditingController();
   final dateController = TextEditingController();
@@ -90,7 +97,7 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Model Request',
+                          'Basic Info',
                           style: desStyle,
                         ),
                         Text(
@@ -163,12 +170,56 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
                   decoration: BoxDecoration(
                       color: ConstColor.lightblackColor.value,
                       borderRadius: BorderRadius.circular(20)),
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/icon_camra.png',
-                      color: Colors.white,
-                      height: 52,
-                      width: 57,
+                  child: InkWell(
+                    onTap: (){
+                      showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          builder: (BuildContext context) {
+                            return Popover(
+                              child: Container(
+                                height: height / 5,
+                                margin: EdgeInsets.symmetric(horizontal: width / 30),
+                                child: Column(
+                                  children: <Widget>[
+                                    SizedBox(
+                                      height: height / 40,
+                                    ),
+                                    ListTile(
+                                        leading: const Icon(
+                                          Icons.camera_alt_outlined,
+                                          color: Color(0xff767676),
+                                        ),
+                                        title: text(data: 'Camera',f_size: 14,f_weight: FontWeight.w400,color: Colors.black,),
+                                        onTap: (){
+                                          appController.pickImageFrom(ImageSource.camera);
+                                        }),
+                                    ListTile(
+                                      leading: const Icon(
+                                        Icons.perm_media_outlined,
+                                        color: Color(0xff767676),
+                                      ),
+                                      title:  text(data: 'Gallery',f_size: 14,f_weight: FontWeight.w400,color: Colors.black,),
+                                      onTap: (){
+                                        appController.pickImageFrom(ImageSource.gallery);
+
+
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          });
+
+                    },
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/icon_camra.png',
+                        color: Colors.white,
+                        height: 52,
+                        width: 57,
+                      ),
                     ),
                   ),
                 ),

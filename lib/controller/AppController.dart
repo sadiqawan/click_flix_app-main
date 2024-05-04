@@ -1,4 +1,10 @@
+import 'dart:io';
+
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AppController extends GetxController {
   var isChecked = false.obs;
@@ -7,6 +13,29 @@ class AppController extends GetxController {
   var isMonthly="false".obs;
 
   var gender = "Select".obs;
+
+
+
+  File? chosenImage;
+
+  Future<void> pickImageFrom(ImageSource imageSource) async {
+    try {
+      // Pick an image from the specified source
+      final XFile? xFile = await ImagePicker().pickImage(source: imageSource);
+      if (xFile == null) return;
+
+      // Get the chosen image file
+      chosenImage = File(xFile.path);
+
+      // Now you have the chosen image in the 'chosenImage' variable, you can use it as needed.
+      // For example, you can display it in an Image widget:
+      // Image.file(chosenImage)
+
+      // After this, you can upload the image to storage or perform any other operations.
+    } catch (error) {
+      print('Error picking image: $error');
+    }
+  }
 
   List<Map<String, dynamic>> modelsData = [
     {
