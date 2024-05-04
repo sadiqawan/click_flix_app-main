@@ -1,11 +1,9 @@
-import 'dart:async';
+ 
 import 'package:click_flex_ui/ui/screens/auth/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/route_manager.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import '../../../../core/constants/const_colors.dart';
+import 'package:get/route_manager.dart';  
 import '../../../../core/constants/const_style.dart';
 
 import '../../../component/custom_button.dart';
@@ -36,7 +34,7 @@ class _UserSelectionScreenState extends State<UserSelectionScreen> {
           ),
 
           Container(
-            padding: EdgeInsets.only(left: 16,right: 16),
+            padding: EdgeInsets.only(left: 16.w,right: 16.w),
             width: double.infinity,
             height: double.infinity,
             decoration:   BoxDecoration(
@@ -52,7 +50,7 @@ class _UserSelectionScreenState extends State<UserSelectionScreen> {
 
           ),
           Container(
-            padding: EdgeInsets.only(left: 16,right: 16),
+            padding: EdgeInsets.only(left: 16.w,right: 16.w),
             width: double.infinity,
             height: double.infinity,
             decoration:   BoxDecoration(
@@ -69,12 +67,12 @@ class _UserSelectionScreenState extends State<UserSelectionScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Image.asset("assets/images/logo.png",width: 84,height: 93,),
+                Image.asset("assets/images/logo.png",width: 84.w,height: 93.h,),
                 Text("CLICK FLEX",style: mediumStyle,
                  ),
 
 
-                SizedBox(height: height*0.040,),
+                SizedBox(height:43.h,),
                 CommonButton(onPress: () {
                   Get.to(const SignUpScreen());
                 }, title: 'Signup',),
@@ -86,13 +84,13 @@ class _UserSelectionScreenState extends State<UserSelectionScreen> {
                 CustomBtnWithImage(text: 'Continue With Google', image: SvgPicture.asset("assets/svg_images/google.svg"), onTap: () {  },),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 32.0),
+                  padding:   EdgeInsets.only(top: 32.h),
                   child: InkWell(
                     onTap: (){
                       Get.to(const LoginScreen());
                     },
                     child: SizedBox(
-                      height: 56,
+                      height: 56.h,
                         child: Text("Login",style: normalStyle)),
                   ),
                 )

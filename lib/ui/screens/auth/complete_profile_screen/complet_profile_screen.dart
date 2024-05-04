@@ -5,6 +5,8 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../core/constants/const_text.dart';
 import '../../../component/complete_profile_comp.dart';
@@ -42,9 +44,9 @@ class _CompleteProfileScreenScreenState extends State<CompleteProfileScreenScree
               )),
           child: SingleChildScrollView(
             child: Padding(
-              padding:   EdgeInsets.only(left:width*.040,right:width*.040,top: height*.20 ),
+              padding:   EdgeInsets.only(left:width*.040,right:width*.040,top: 106 ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
@@ -59,9 +61,10 @@ class _CompleteProfileScreenScreenState extends State<CompleteProfileScreenScree
                     ),
                   ),
                   SizedBox(
-                    height: height*.032,
+                    height:40.h,
                   ),
 
+SvgPicture.asset("assets/svg_images/profile_bg.svg"),
 
                   // const Row(
                   //   children: [
@@ -86,7 +89,9 @@ class _CompleteProfileScreenScreenState extends State<CompleteProfileScreenScree
                   //   ],
                   // ),
 
-
+    SizedBox(
+                    height:32.h,
+                  ),
 
                   CustomTextFieldWithImage2(
                     labelText: "Full Name",
@@ -107,7 +112,7 @@ class _CompleteProfileScreenScreenState extends State<CompleteProfileScreenScree
                    'Select', 'Option 2', 'Option 3', 'Option 4'
                   ],),
 
-                  const SizedBox(height: 24,),
+                    SizedBox(height: 32.h,),
                   CommonButton(onPress: () {
                     Get.to(const BottomNavScreen());
                   }, title: "SinUp"),

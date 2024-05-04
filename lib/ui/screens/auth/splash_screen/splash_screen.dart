@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../core/constants/const_colors.dart';
@@ -56,10 +57,10 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("assets/images/logo.png",width: 100,height: 100,),
+                Image.asset("assets/images/logo.png",width: 150.w,height: 167,),
                 Text("CLICK FLEX",style: GoogleFonts.raleway(
                     color:ConstColor.primaryColor.value,
-                    fontSize:32,
+                    fontSize:32.sp,
                     fontWeight:FontWeight.w700),
 
                 ),

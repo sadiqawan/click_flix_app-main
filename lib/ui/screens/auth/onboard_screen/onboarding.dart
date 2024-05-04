@@ -48,7 +48,7 @@ class _OnBoardingState extends State<OnBoarding> {
             )
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: 40.0,bottom: 20),
+          padding: const EdgeInsets.only(top: 40.0,bottom: 32),
           child: Column(
             children: [
               Expanded(

@@ -4,6 +4,7 @@ import 'package:click_flex_ui/core/constants/const_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/route_manager.dart';
 
@@ -42,24 +43,24 @@ class _LoginScreenState extends State<LoginScreen> {
               image: AssetImage("assets/images/bg_image.png"),
             )),
             child: Padding(
-              padding:   EdgeInsets.only(left:width*.040,right:width*.040, ),
+              padding:   EdgeInsets.only(left:16.w,right:16.w, ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "welcome back !",
-                    style: mediumStyle.copyWith(fontWeight: FontWeight.w600),
+                    style: mediumStyle.copyWith(fontWeight: FontWeight.w600,fontSize: 25.sp),
                   ),
                   Padding(
-                    padding:   EdgeInsets.only(top:height*.008),
+                    padding:   EdgeInsets.only(top:8.h),
                     child: Text(
                       welcomeDesText,
                       style: desStyle,
                     ),
                   ),
                     SizedBox(
-                    height: height*.032,
+                    height:50.h,
                   ),
                   CustomTextFieldWithImage2(
                     labelText: "Email Address",
@@ -78,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: 'Password',
                   ),
                     SizedBox(
-                    height: height*.016,
+                    height: 24.h,
                   ),
                   Align(
                       alignment: Alignment.topRight,
@@ -92,14 +93,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: ConstColor.blueColor.value),
                           ))),
                     SizedBox(
-                    height: height*.040,
+                    height: 32.h,
                   ),
                   CommonButton(onPress: () {
                     Get.to(const BottomNavScreen());
                   }, title: "Login"),
       
                   Padding(
-                    padding:   EdgeInsets.symmetric(vertical: height*.040),
+                    padding:   EdgeInsets.symmetric(vertical:32.h),
                     child: Row(
                       children: [
                         Expanded(
@@ -145,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: height*.060,
+                    height:58.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

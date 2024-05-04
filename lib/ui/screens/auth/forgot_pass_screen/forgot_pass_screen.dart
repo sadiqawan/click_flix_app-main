@@ -1,13 +1,9 @@
-import 'package:click_flex_ui/core/constants/const_colors.dart';
-import 'package:click_flex_ui/core/constants/const_style.dart';
-
+ import 'package:click_flex_ui/core/constants/const_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart'; 
 import 'package:get/route_manager.dart';
-
-
 import '../../../component/back_button.dart';
 import '../../../component/custom_button.dart';
 import '../../../component/custom_text_field.dart';
@@ -52,14 +48,14 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                 CustomBackButton(onPress: () {
                   Get.back();
                 },),
-                SizedBox(height: height*.060,),
+                SizedBox(height:45.h,),
                 Text("Forget Password !",style: mediumStyle.copyWith(fontWeight: FontWeight.w600),),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding:   EdgeInsets.only(top: 8.h),
                   child: Text("Enter Your Email To Recover Your Account",style: desStyle,),
                 ),
 
-                SizedBox(height: 32,),
+                SizedBox(height: 50.h,),
 
                 CustomTextFieldWithImage2(
                   labelText: "Email Address",
@@ -67,7 +63,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                   hintText: 'Email',),
                 SizedBox(height: 8,),
 
-                const SizedBox(height: 24,),
+                  SizedBox(height: 32.h,),
                 CommonButton(onPress: (){
                   Get.to(const NewPassScreen());
                 }, title: "Reset Your Password"),
