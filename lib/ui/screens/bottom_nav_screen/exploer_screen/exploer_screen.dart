@@ -6,6 +6,7 @@ import 'package:click_flex_ui/core/constants/const_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -150,7 +151,10 @@ class _ExploerScreenState extends State<ExploerScreen> {
                               ),
                             ],
                           ),
-                          Expanded(
+                          Container(
+                            // color: Colors.red,
+                            height: 100.h,
+                         width:270.w,
                             child: ListView.builder(
                                 itemCount: rowData.length,
                                 scrollDirection: Axis.horizontal,
@@ -165,8 +169,8 @@ class _ExploerScreenState extends State<ExploerScreen> {
                                     print("showing the story");
                                     Get.to(story_screen());
                                   },child: Container(
-                                            height: height * .095,
-                                            width: width * .170,
+                                            height: 70.h,
+                                            width: 70.w,
                                             decoration: BoxDecoration(
                                                 border: Border.all(
                                                     width: 2,
@@ -177,10 +181,11 @@ class _ExploerScreenState extends State<ExploerScreen> {
                                                       rowData[index]['image']),
                                                 )),
                                           ),
+
                                         ),
-                                        const SizedBox(
-                                          height: 4,
-                                        ),
+                                        // const SizedBox(
+                                        //   height: 4,
+                                        // ),
                                         Text(
                                           rowData[index]['name'],
                                           style: desStyle.copyWith(fontSize: 12),
@@ -379,7 +384,8 @@ class _ExploerScreenState extends State<ExploerScreen> {
                       color: ConstColor.greyColor.value,
                     ),
                   ),
-                  Expanded(
+                  Container(
+                    height: 480,
                     child: ListView.builder(
                       physics: ScrollPhysics(),
                         itemCount: data.length,
