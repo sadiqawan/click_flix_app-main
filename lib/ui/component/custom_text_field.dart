@@ -219,6 +219,7 @@ class SimpleCustomTextFieldWithSuffixAssetImage extends StatelessWidget {
   final String hintText;
   final String? labelText;
   final TextInputType? keyBordType;
+  VoidCallback? surffixIconTap;
 
   SimpleCustomTextFieldWithSuffixAssetImage({
     super.key,
@@ -227,6 +228,7 @@ class SimpleCustomTextFieldWithSuffixAssetImage extends StatelessWidget {
     required this.hintText,
     this.labelText,
     this.keyBordType, this.image,
+    this.surffixIconTap
   });
 
   @override
@@ -266,7 +268,9 @@ class SimpleCustomTextFieldWithSuffixAssetImage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10.0),
               child: Padding(
                 padding:  const EdgeInsets.all(7.0),
-                child: Image.asset(image ?? "",height: 17,),
+                child: InkWell(
+                  onTap: surffixIconTap,
+                    child: Image.asset(image ?? "",height: 17,)),
               ),
             ),
             hintText: hintText,

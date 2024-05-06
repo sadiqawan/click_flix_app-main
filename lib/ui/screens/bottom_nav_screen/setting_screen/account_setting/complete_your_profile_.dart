@@ -10,6 +10,8 @@ import '../../../../../core/constants/const_style.dart';
 import '../../../../component/complete_profile_comp.dart';
 import '../../../../component/custom_button.dart';
 import '../../../../component/custom_text_field.dart';
+import '../../../../component/pop_over.dart';
+import '../../../../component/text.dart';
 
 class CompleteYourScreen extends StatefulWidget {
   const CompleteYourScreen({super.key});
@@ -108,6 +110,9 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
                       hintText: 'Full Name',
                       labelText: 'Full Name',
                       image: 'assets/images/edit_icon.png',
+                      surffixIconTap: (){
+                        editIcon(context, nameController);
+                      },
                     ),
                     const SizedBox(
                       height: 10,
@@ -117,6 +122,9 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
                       hintText: 'EmailAddress',
                       labelText: 'EmailAddress',
                       image: 'assets/images/edit_icon.png',
+                      surffixIconTap: (){
+                        editIcon(context, nameController);
+                      },
                     ),
                     const SizedBox(
                       height: 10,
@@ -126,6 +134,9 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
                       hintText: 'PhoneNumber',
                       labelText: 'PhoneNumber',
                       image: 'assets/images/edit_icon.png',
+                      surffixIconTap: (){
+                        editIcon(context, nameController);
+                      },
                     ),
                     const SizedBox(
                       height: 10,
@@ -135,6 +146,9 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
                       hintText: 'Password',
                       labelText: 'Password',
                       image: 'assets/images/edit_icon.png',
+                      surffixIconTap: (){
+                        editIcon(context, nameController);
+                      },
                     ),
 
                     const SizedBox(
@@ -214,7 +228,9 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
                   children: [
                     Expanded(
                         flex: 1,
-                        child: CommonButton(onPress: () {}, title: 'Save',)),
+                        child: CommonButton(onPress: () {
+
+                        }, title: 'Save',)),
                 const SizedBox(width: 8,),
                     Expanded(child: Container(
                       height: 58,
@@ -229,26 +245,6 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
                   ],
                 ),
               ),
-
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     CommonButton(onPress: () {}, title: 'Save',),
-            //     Padding(
-            //       padding: const EdgeInsets.only(top: 14.0),
-            //       child: Container(
-            //
-            //         height: 50,
-            //         decoration: BoxDecoration(
-            //             border: Border.all(color: Colors.white24),
-            //             borderRadius: BorderRadius.circular(15)
-            //         ),
-            //         child: TextButton(onPressed: (){},
-            //           child: Text('Delete My Account',style: desStyleWithWhite.copyWith(color: Colors.red)),),
-            //       ),
-            //     ),
-            //   ],
-            // )
             ],
           ),
         ),
@@ -256,3 +252,77 @@ class _CompleteYourScreenState extends State<CompleteYourScreen> {
     );
   }
 }
+
+
+Future<void> editIcon(BuildContext context, TextEditingController controller) async {
+  await showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext context) {
+      return Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+        ),
+        child: SizedBox(
+          height: 290,
+          child: Column(
+
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0,
+                bottom: 50),
+                child: Center(child:  Text('Edit Your Email Address',style: desStyleWithWhite.copyWith(
+                    fontWeight: FontWeight.w400, color: ConstColor.greyColor.value),)),
+              ),
+
+              SimpleCustomTextFieldWithSuffixAssetImage(
+                controller: controller,
+                hintText: 'EmailAddress',
+                labelText: 'EmailAddress',
+                image: 'assets/images/edit_icon.png',
+              ),
+              SizedBox(height: 50), // Adjust the spacing as needed
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: CommonButton(
+                      onPress: () {
+                        // Add functionality here
+                      },
+                      title: 'Save',
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  Container(
+                    height: 58,
+                    width: 90,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.white24),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Cancel',
+                        style: desStyleWithWhite.copyWith(color: Colors.red),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
+
