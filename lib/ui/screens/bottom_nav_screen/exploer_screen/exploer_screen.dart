@@ -46,348 +46,349 @@ class _ExploerScreenState extends State<ExploerScreen> {
     return Obx(() {
       return SafeArea(
         child: Scaffold(
-          body: Container(
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      "assets/images/bg_image.png",
-                    ))),
-            child: Padding(
-              padding: EdgeInsets.only(top: height * .032),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      right: width * .056,
-                      left: width * .056,
-                    ),
-                    child: Row(
-                      children: [
-                        InkWell(
-                          onTap: (){
-              Get.to(camera_gallery_screen());
-            },
-                          child: SvgPicture.asset(
-                            "assets/svg_images/icon_solor.svg",
-                            width: width * .032,
-                            height: height * .032,
-                          ),
-                        ),
-                        Spacer(),
-                        InkWell(
-                          onTap: (){
-                            print("Towards search screen");
-                            Get.to(search_screen());
-                          },
-                          child: SvgPicture.asset(
-                            "assets/svg_images/icon_search.svg",
-                            width: width * .032,
-                            height: height * .032,
-                          ),
-                        ),
-                        SizedBox(
-                          width: width * .040,
-                        ),
-                        InkWell(
-                          onTap: (){
-                            Get.to(NotificationScreen());
-                          },
-                          child: SvgPicture.asset(
-                            "assets/svg_images/icon_notification.svg",
-                            width: width * .040,
-                            height: height * .032,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      right: width * .056,
-                      left: width * .056,
-                      top: height * .016,
-                      bottom: height * .016,
-                    ),
-                    child: SizedBox(
-                      height: 100,
+          body: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        "assets/images/bg_image.png",
+                      ))),
+              child: Padding(
+                padding: EdgeInsets.only(top: height * .032),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: width * .056,
+                        left: width * .056,
+                      ),
                       child: Row(
                         children: [
-                          Stack(
-                            children: [
-                              Container(
-                                height: height * .100,
-                                width: width * .190,
-                              ),
-                              Container(
-                                height: height * .095,
-                                width: width * .170,
-                                decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/image_profile.png'),
-                                    )),
-                              ),
-                              Positioned(
-                                bottom: 7,
-                                right: -3,
-                                child: Container(
-                                  height: height * .030,
-                                  width: width * .10,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: ConstColor.blueColor.value,
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: SvgPicture.asset(
-                                      "assets/svg_images/icon_add.svg",
-                                      height: 10,
-                                      width: 10,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          InkWell(
+                            onTap: (){
+                Get.to(camera_gallery_screen());
+              },
+                            child: SvgPicture.asset(
+                              "assets/svg_images/icon_solor.svg",
+                              width: width * .032,
+                              height: height * .032,
+                            ),
                           ),
-                          Container(
-                            // color: Colors.red,
-                            height: 100.h,
-                         width:270.w,
-                            child: ListView.builder(
-                                itemCount: rowData.length,
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return Padding(
-                                    padding: const EdgeInsets.only(left: 12.0),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        InkWell(
-                                          onTap: (){
-                                    print("showing the story");
-                                    Get.to(story_screen());
-                                  },child: Container(
-                                            height: 70.h,
-                                            width: 70.w,
-                                            decoration: BoxDecoration(
-                                                border: Border.all(
-                                                    width: 2,
-                                                    color: Colors.red),
-                                                shape: BoxShape.circle,
-                                                image: DecorationImage(
-                                                  image: AssetImage(
-                                                      rowData[index]['image']),
-                                                )),
-                                          ),
-
-                                        ),
-                                        // const SizedBox(
-                                        //   height: 4,
-                                        // ),
-                                        Text(
-                                          rowData[index]['name'],
-                                          style: desStyle.copyWith(fontSize: 12),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                }),
+                          Spacer(),
+                          InkWell(
+                            onTap: (){
+                              print("Towards search screen");
+                              Get.to(search_screen());
+                            },
+                            child: SvgPicture.asset(
+                              "assets/svg_images/icon_search.svg",
+                              width: width * .032,
+                              height: height * .032,
+                            ),
+                          ),
+                          SizedBox(
+                            width: width * .040,
+                          ),
+                          InkWell(
+                            onTap: (){
+                              Get.to(NotificationScreen());
+                            },
+                            child: SvgPicture.asset(
+                              "assets/svg_images/icon_notification.svg",
+                              width: width * .040,
+                              height: height * .032,
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 160,
-                      child: PageView(
-                          controller: controler,
-
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: width * .056,
+                        left: width * .056,
+                        top: height * .016,
+                        bottom: height * .016,
+                      ),
+                      child: SizedBox(
+                        height: 100,
+                        child: Row(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/bg_banner.png'),
-                                    fit: BoxFit.fill),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 16.0, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'How To Become A Model ?',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
+                            Stack(
+                              children: [
+                                Container(
+                                  height: height * .100,
+                                  width: width * .190,
+                                ),
+                                Container(
+                                  height: height * .095,
+                                  width: width * .170,
+                                  decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            'assets/images/image_profile.png'),
+                                      )),
+                                ),
+                                Positioned(
+                                  bottom: 7,
+                                  right: -3,
+                                  child: Container(
+                                    height: height * .030,
+                                    width: width * .10,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: ConstColor.blueColor.value,
                                     ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Ever Thought Tbout Modeling\nBecome B Model Now!',
-                                      style: TextStyle(color: Colors.white, fontSize: 10),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      height: 32,
-                                      width: 90,
-                                      decoration: BoxDecoration(color: Colors.red),
-                                      child: Center(
-                                        child: Text(
-                                          'Learn More',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(4.0),
+                                      child: SvgPicture.asset(
+                                        "assets/svg_images/icon_add.svg",
+                                        height: 10,
+                                        width: 10,
                                       ),
                                     ),
-                                    Center(child: SmoothPageIndicator(
-                                      controller: controler, count: 3,
-                                      effect: const SlideEffect(
-                                        dotHeight: 8,
-                                        dotWidth: 8,
-                                        dotColor: Colors.grey,
-                                        activeDotColor: Colors.white,
-                                      ),),
-
-                                    )
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ), Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/bn.png'),
-                                    fit: BoxFit.fill),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 16.0, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'How To Become A Model ?',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Ever Thought Tbout Modeling\nBecome B Model Now!',
-                                      style: TextStyle(color: Colors.white, fontSize: 10),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      height: 32,
-                                      width: 90,
-                                      decoration: BoxDecoration(color: Colors.red),
-                                      child: Center(
-                                        child: Text(
-                                          'Learn More',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                    Center(child: SmoothPageIndicator(
-                                      controller: controler, count: 3,
-                                      effect: const SlideEffect(
-                                        dotHeight: 8,
-                                        dotWidth: 8,
-                                        dotColor: Colors.grey,
-                                        activeDotColor: Colors.white,
-                                      ),),
-
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ), Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/images/bn.png'),
-                                    fit: BoxFit.fill),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 16.0, top: 20),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'How To Become A Model ?',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Ever Thought Tbout Modeling\nBecome B Model Now!',
-                                      style: TextStyle(color: Colors.white, fontSize: 10),
-                                    ),
-                                    SizedBox(
-                                      height: 20,
-                                    ),
-                                    Container(
-                                      height: 32,
-                                      width: 90,
-                                      decoration: BoxDecoration(color: Colors.red),
-                                      child: Center(
-                                        child: Text(
-                                          'Learn More',
-                                          style: TextStyle(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
-                                    Center(child: SmoothPageIndicator(
-                                      controller: controler, count: 3,
-                                      effect: const SlideEffect(
-                                        dotHeight: 8,
-                                        dotWidth: 8,
-                                        dotColor: Colors.grey,
-                                        activeDotColor: Colors.white,
-                                      ),),
-
-                                    )
-                                  ],
-                                ),
-                              ),
+                              ],
                             ),
-                          ]),
+                            Container(
+                              // color: Colors.red,
+                              height: 100.h,
+                           width:270.w,
+                              child: ListView.builder(
+                                  itemCount: rowData.length,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(left: 12.0),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          InkWell(
+                                            onTap: (){
+                                      print("showing the story");
+                                      Get.to(story_screen());
+                                    },child: Container(
+                                              height: 70.h,
+                                              width: 70.w,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      width: 2,
+                                                      color: Colors.red),
+                                                  shape: BoxShape.circle,
+                                                  image: DecorationImage(
+                                                    image: AssetImage(
+                                                        rowData[index]['image']),
+                                                  )),
+                                            ),
+            
+                                          ),
+                                          // const SizedBox(
+                                          //   height: 4,
+                                          // ),
+                                          Text(
+                                            rowData[index]['name'],
+                                            style: desStyle.copyWith(fontSize: 12),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  }),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-
-                  Padding(
-                    padding: EdgeInsets.only(
-                      right: width * .056,
-                      left: width * .056,
-                      top: height * .016,
-
+            
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 160,
+                        child: PageView(
+                            controller: controler,
+            
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/bg_banner.png'),
+                                      fit: BoxFit.fill),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 16.0, top: 20),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'How To Become A Model ?',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        'Ever Thought Tbout Modeling\nBecome B Model Now!',
+                                        style: TextStyle(color: Colors.white, fontSize: 10),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        height: 32,
+                                        width: 90,
+                                        decoration: BoxDecoration(color: Colors.red),
+                                        child: Center(
+                                          child: Text(
+                                            'Learn More',
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                      Center(child: SmoothPageIndicator(
+                                        controller: controler, count: 3,
+                                        effect: const SlideEffect(
+                                          dotHeight: 8,
+                                          dotWidth: 8,
+                                          dotColor: Colors.grey,
+                                          activeDotColor: Colors.white,
+                                        ),),
+            
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/bn.png'),
+                                      fit: BoxFit.fill),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 16.0, top: 20),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'How To Become A Model ?',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        'Ever Thought Tbout Modeling\nBecome B Model Now!',
+                                        style: TextStyle(color: Colors.white, fontSize: 10),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        height: 32,
+                                        width: 90,
+                                        decoration: BoxDecoration(color: Colors.red),
+                                        child: Center(
+                                          child: Text(
+                                            'Learn More',
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                      Center(child: SmoothPageIndicator(
+                                        controller: controler, count: 3,
+                                        effect: const SlideEffect(
+                                          dotHeight: 8,
+                                          dotWidth: 8,
+                                          dotColor: Colors.grey,
+                                          activeDotColor: Colors.white,
+                                        ),),
+            
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ), Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  image: DecorationImage(
+                                      image: AssetImage('assets/images/bn.png'),
+                                      fit: BoxFit.fill),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 16.0, top: 20),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'How To Become A Model ?',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        'Ever Thought Tbout Modeling\nBecome B Model Now!',
+                                        style: TextStyle(color: Colors.white, fontSize: 10),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Container(
+                                        height: 32,
+                                        width: 90,
+                                        decoration: BoxDecoration(color: Colors.red),
+                                        child: Center(
+                                          child: Text(
+                                            'Learn More',
+                                            style: TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                      Center(child: SmoothPageIndicator(
+                                        controller: controler, count: 3,
+                                        effect: const SlideEffect(
+                                          dotHeight: 8,
+                                          dotWidth: 8,
+                                          dotColor: Colors.grey,
+                                          activeDotColor: Colors.white,
+                                        ),),
+            
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ]),
+                      ),
                     ),
-                    child: Divider(
-                      thickness: .4,
-                      color: ConstColor.greyColor.value,
+            
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: width * .056,
+                        left: width * .056,
+                        top: height * .016,
+            
+                      ),
+                      child: Divider(
+                        thickness: .4,
+                        color: ConstColor.greyColor.value,
+                      ),
                     ),
-                  ),
-                  Container(
-                    height: 480,
-                    child: ListView.builder(
-                      physics: ScrollPhysics(),
+                    ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
                         itemCount: data.length,
                         itemBuilder: (context, index) {
                           return Padding(
@@ -549,9 +550,9 @@ class _ExploerScreenState extends State<ExploerScreen> {
                               ),
                             ),
                           );
-                        }),
-                  )
-                ],
+                        })
+                  ],
+                ),
               ),
             ),
           ),
