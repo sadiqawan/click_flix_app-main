@@ -43,7 +43,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 alignment: Alignment.center,
                 children: [
                   Container(
-                    height: height * 0.4,
+                    height: height * 0.3,
                     width: double.infinity,
                     decoration: const BoxDecoration(
                       image: DecorationImage(
@@ -53,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: height * 0.316,
+                    top: height * 0.2,
                     child: Container(
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
@@ -92,7 +92,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Positioned(
-                    top: height * 0.4, // Adjust the position as needed
+                    top: height * 0.3, // Adjust the position as needed
                     child: Container(
                         height: height * 0.6,
                         width: width * 0.99,

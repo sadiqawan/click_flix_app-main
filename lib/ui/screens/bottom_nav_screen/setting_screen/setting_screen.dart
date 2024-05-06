@@ -15,6 +15,7 @@ import '../../../../core/constants/const_colors.dart';
 import '../../../../core/constants/const_style.dart';
 import '../../../component/tabContainer.dart';
 import '../../profile_screen/profile_screen.dart';
+import 'account_setting/complete_your_profile_.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -77,57 +78,57 @@ class _SettingScreenState extends State<SettingScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 24.0),
-                        child: Container(
-                          padding:
-                              EdgeInsets.only(left: 32, right: 24, top: 16, bottom: 16),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                width: .5,
-                                color: ConstColor.greyColor.value,
-                              )),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap:(){
-                                  Get.to(ProfileScreen());
-                                },
-                                child: Container(
+                        child: InkWell(
+                          onTap: (){
+                            Get.to(ProfileScreen());
+                          },
+                          child: Container(
+                            padding:
+                                EdgeInsets.only(left: 32, right: 24, top: 16, bottom: 16),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  width: .5,
+                                  color: ConstColor.greyColor.value,
+                                )),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
                                   height: height * .115,
                                   width: width * .190,
                                   decoration: BoxDecoration(
                                       border: Border.all(width: 2, color: Colors.red),
                                       shape: BoxShape.circle,
-                                      image: DecorationImage(
+                                      image: const DecorationImage(
                                         image:
                                             AssetImage("assets/images/image_profile.png"),
                                       )),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 16,
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Mohamed Ahmed",
-                                    style: desStyle.copyWith(
-                                        color: ConstColor.primaryColor.value),
-                                  ),
-                                  Text(
-                                    "Cairo, Egypt",
-                                    style: desStyle,
-                                  )
-                                ],
-                              ),
-                              Spacer(),
-                              Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                color: ConstColor.greyColor.value,
-                              )
-                            ],
+                                const SizedBox(
+                                  width: 16,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Mohamed Ahmed",
+                                      style: desStyle.copyWith(
+                                          color: ConstColor.primaryColor.value),
+                                    ),
+                                    Text(
+                                      "Cairo, Egypt",
+                                      style: desStyle,
+                                    )
+                                  ],
+                                ),
+                                Spacer(),
+                                Icon(
+                                  Icons.arrow_forward_ios_outlined,
+                                  color: ConstColor.greyColor.value,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -158,7 +159,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                     image: SvgPicture.asset(
                                         "assets/svg_images/account_setting.svg"),
                                     title: "Account Setting",
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Get.to(()=> const  CompleteYourScreen());
+                                    }),
                                 Padding(
                                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                                   child: Divider(
