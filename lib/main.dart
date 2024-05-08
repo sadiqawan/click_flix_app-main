@@ -37,3 +37,90 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/*
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Custom Bottom Navigation Bar',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text('Custom Bottom Navigation Bar'),
+      ),
+      body: Center(
+        child: Text('Selected Index: $_selectedIndex'),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: Icon(Icons.home),
+                onPressed: () => _onItemTapped(0),
+              ),
+              IconButton(
+                icon: Icon(Icons.search),
+                onPressed: () => _onItemTapped(1),
+              ),
+              SizedBox(width: 48), // Spacer
+              IconButton(
+                icon: Icon(Icons.notifications),
+                onPressed: () => _onItemTapped(2),
+              ),
+              IconButton(
+                icon: Icon(Icons.person),
+                onPressed: () => _onItemTapped(3),
+              ),
+            ],
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed function here
+        },
+        tooltip: 'Add',
+        child: Icon(Icons.add),
+        elevation: 2.0,
+        shape: CircleBorder(),
+      ),
+    );
+  }
+}
+*/
