@@ -137,6 +137,7 @@
 //   }
 // }
 
+import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/ui/screens/model_side/bottom_nav_screen/setting_screen/setting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -173,8 +174,10 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
+        color: ConstColor.blackColor.value.withOpacity(.3),
         shape: const CircularNotchedRectangle(),
         child: Container(
+           color: ConstColor.greyColor.value.withOpacity(.3),
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -198,6 +201,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+
         onPressed: () {
           // Add your onPressed function here
         },
