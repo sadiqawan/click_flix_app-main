@@ -34,6 +34,7 @@ class _CastingDetailScreenState extends State<CastingDetailScreen> {
     // Show modal bottom sheet when the widget is initialized
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       showModalBottomSheet(
+        
         backgroundColor: Colors.black,
         isScrollControlled: true,
         context: context,
@@ -119,9 +120,10 @@ class _CastingDetailScreenState extends State<CastingDetailScreen> {
 }
 
 Widget bottomSheet(BuildContext context, title, location, status, date) {
-  return Container(
+  
+  return SizedBox(
     width: double.infinity,
-    height: 600.h,
+    height: 700.h,
     child: Padding(
       padding:   EdgeInsets.all(20.sp),
       child: Column(

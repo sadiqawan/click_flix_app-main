@@ -23,12 +23,13 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  List<String> list = [
-    "About",
-    "MyCasting",
-  ];
+
 
   final appController = Get.find<AppController>();
+  List<String> list = [
+    "Casting",
+    "MyCasting",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 top: 32.h,
                 child: Container(
                   width: width,
-
                   child:   Padding(
                     padding:   EdgeInsets.only(left: 16.w,right: 16.w,top: 24.h),
                     child: Column(
@@ -145,8 +145,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(24),
                                       border: Border.all(color: ConstColor.greyColor.value)),
-                                  width:width,
-                                  height: 48.h,
+                                  width: Get.width * .87,
+                                  height: Get.height * 0.056,
                                   child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemCount: list.length,
@@ -154,12 +154,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         return InkWell(
                                           onTap: () {
                                             setState(() {
-                                              appController.indexAbout.value = index;
+                                              appController.index.value = index;
                                             });
                                           },
                                           child: TabContainer(
-                                            width: 185.toDouble(),
-                                            linerGradient: appController.indexAbout.value == index
+                                            width: 163.w,
+                                            linerGradient: appController.index == index
                                                 ? LinearGradient(
                                                 begin: Alignment.topLeft,
                                                 end: Alignment.topRight,
@@ -174,15 +174,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                   Colors.transparent,
                                                   Colors.transparent,
                                                 ]),
-                                            textColor: appController.indexAbout.value == index
+                                            textColor: appController.index == index
                                                 ? ConstColor.primaryColor.value
                                                 : ConstColor.greyColor.value,
                                             text: list[index],
-                                            onPress: () {
-                                              setState(() {
-                                                appController.indexAbout.value= index;
-                                              });
-                                            },
+                                            onPress: () {},
                                           ),
                                         );
                                       }),
@@ -221,79 +217,91 @@ class _ProfileScreenState extends State<ProfileScreen> {
 // About
 
 
+
 class AboutData extends StatefulWidget {
-  const AboutData({super.key});
+  const AboutData({Key? key}) : super(key: key);
 
   @override
-  State<AboutData> createState() => _AboutDataState();
+  _AboutDataState createState() => _AboutDataState();
 }
 
 class _AboutDataState extends State<AboutData> {
-  AppController appController = Get.put(AppController());
-  ConstColor constColor = Get.put(ConstColor());
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Expanded(
-        child: Column(
-          children: [
-            Padding(
-              padding:   EdgeInsets.only(top: 16.h),
-              child: Container(
-                padding: EdgeInsets.only(top: 16.h,left: 16.w,right: 16.h,bottom: 16.h),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.sp),
-                    border: Border.all(color: ConstColor.greyColor.value.withOpacity(.5))
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.topLeft,
-                        child: Text("About",style: mediumStyle,)),
-                    SizedBox(height: 16.h,),
-                    Text(aboutText,style: desStyle,)
-            
-                  ],
-                ),
+      physics: AlwaysScrollableScrollPhysics(),
+      child: Column(
+
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 16.h),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.sp),
+                border: Border.all(color: ConstColor.greyColor.value.withOpacity(.5)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "About",
+                      style: mediumStyle,
+                    ),
+                  ),
+                  SizedBox(height: 16.h),
+                  Text(
+                    aboutText,
+                    style: desStyle,
+                  ),
+                ],
               ),
             ),
-            Padding(
-              padding:   EdgeInsets.only(top: 16.h),
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(top: 16.h,left: 16.w,right: 16.h,bottom: 16.h),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.sp),
-                    border: Border.all(color: ConstColor.greyColor.value.withOpacity(.5))
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Detail",style: mediumStyle,),
-                    SizedBox(height: 16.h,),
-                    Text("Location",style: normalStyle,),
-                    SizedBox(height: 4.h,),
-                    Text("cairo, egypt",style: desStyle,),
-                    SizedBox(height: 16.h,),
-                    Text("Joining Detail",style: normalStyle,),
-                    SizedBox(height: 4.h,),
-                    Text("cairo, egypt",style: desStyle,),
-                    SizedBox(height: 16.h,),
-                    Text("Website ",style: normalStyle,),
-                    SizedBox(height: 4.h,),
-                    Text("www.mfsdfdssf agency.com",style: normalStyle.copyWith(color: ConstColor.blueColor.value),),
-                  ],
-                ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 16.h),
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.sp),
+                border: Border.all(color: ConstColor.greyColor.value.withOpacity(.5)),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Detail", style: mediumStyle),
+                  SizedBox(height: 16.h),
+                  Text("Location", style: normalStyle),
+                  SizedBox(height: 4.h),
+                  Text("cairo, egypt", style: desStyle),
+                  SizedBox(height: 16.h),
+                  Text("Joining Detail", style: normalStyle),
+                  SizedBox(height: 4.h),
+                  Text("cairo, egypt", style: desStyle),
+                  SizedBox(height: 16.h),
+                  Text(
+                    "Website ",
+                    style: normalStyle,
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    "www.mfsdfdssf agency.com",
+                    style: normalStyle.copyWith(color: ConstColor.blueColor.value),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 }
+
+
 
 
 // Casting

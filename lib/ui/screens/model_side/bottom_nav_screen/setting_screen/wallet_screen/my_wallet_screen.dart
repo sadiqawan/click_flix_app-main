@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
+
 import '../../../../../../controller/AppController.dart';
 import '../../../../../../core/constants/const_colors.dart';
 import '../../../../../../core/constants/const_style.dart';
@@ -130,7 +131,7 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                 padding:   EdgeInsets.only(bottom: 24.h),
                 child: CommonButton(onPress: (){
 
-                  Get.to(GetMoneyScreen());
+                  Get.to(const GetMoneyScreen());
 
                 }, title: "Balance Withdrawal "),
               )
