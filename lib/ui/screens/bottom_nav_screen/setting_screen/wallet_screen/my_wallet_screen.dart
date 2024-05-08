@@ -1,12 +1,18 @@
+import 'package:click_flex_ui/ui/component/custom_button.dart';
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/wallet_screen/wallet_sucess_screen/wallet_sucess_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:gradient_borders/box_borders/gradient_box_border.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 import '../../../../../controller/AppController.dart';
 import '../../../../../core/constants/const_colors.dart';
 import '../../../../../core/constants/const_style.dart';
 import '../../../../component/custom_radioListTile.dart';
+import 'get_money_screen/get_money_screen.dart';
 
 class MyWalletScreen extends StatefulWidget {
   const MyWalletScreen({Key? key}) : super(key: key);
@@ -75,9 +81,13 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        GradientText(
                           'Good Job',
-                          style: headingStyle,
+                          style:headingStyle,
+                          colors: [
+                            ConstColor.gradientOneColor.value,
+                            ConstColor.gradientTwoColor.value,
+                          ],
                         ),
                         Text(
                           'Current Balance',
@@ -92,111 +102,58 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
                   ],
                 ),
               ),
+
+              SizedBox(height: 24.h,),
               
               Align(
                 alignment: Alignment.centerLeft,
       
                   child: Text('Withdrawing Methods ',style: headingStyle.copyWith(fontSize: 16.sp),)),
-              SizedBox(height: 24.h,),
+
+              SizedBox(height: 32.h,),
               CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png'),
               SizedBox(height: 24.h,),
               CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png'),
               SizedBox(height: 16.h,),
-              CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png')
+              CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png'),
+
+              SizedBox(height: 16.h,),
+              Container(
+                width: width,
+                height: 56.h,
+                decoration: BoxDecoration(
+                    border:   GradientBoxBorder(
+                      gradient: LinearGradient(colors: [
+                     ConstColor.gradientOneColor.value,
+                     ConstColor.gradientOneColor.value,
+                      ]),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(16)
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+
+                    SvgPicture.asset("assets/svg_images/solar_add-square-outline (1).svg"),
+
+                    Text("Add new withdrawal method",style: mediumStyle.copyWith(fontSize: 16.sp),),
+                  ],
+                ),
+              ),
+              SizedBox(height: 174.h,),
+
+              CommonButton(onPress: (){
+
+                Get.to(GetMoneyScreen());
+
+              }, title: "Balance Withdrawal ")
             ],
           ),
         ),
       ),
     );
-    //   SafeArea(
-    //   child: Scaffold(
-    //     appBar: AppBar(
-    //       backgroundColor: Colors.black,
-    //       title: Text(
-    //         'Wallet',
-    //         style: TextStyle(),
-    //       ),
-    //     ),
-    //     backgroundColor: Colors.black,
-    //     body: Padding(
-    //       padding: const EdgeInsets.all(8.0),
-    //       child: Container(
-    //         child: Column(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           crossAxisAlignment: CrossAxisAlignment.center,
-    //           children: [
-    //             Container(
-    //               height: 112,
-    //               width: 358,
-    //               decoration: BoxDecoration(
-    //                 gradient: LinearGradient(
-    //                   begin: Alignment.topRight,
-    //                   end: Alignment.topLeft,
-    //                   colors: [
-    //                     Colors.pink.withOpacity(0.1),
-    //                     Colors.orange.withOpacity(0.1),
-    //                   ],
-    //                 ),
-    //                 borderRadius: BorderRadius.circular(10),
-    //               ),
-    //               child: Row(
-    //                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-    //                 children: [
-    //                   Column(
-    //                     mainAxisAlignment: MainAxisAlignment.center,
-    //                     crossAxisAlignment: CrossAxisAlignment.center,
-    //                     children: [
-    //                       Text(
-    //                         'Good Job',
-    //                         style: TextStyle(
-    //                           fontSize: 30,
-    //                           fontWeight: FontWeight.w600,
-    //                           color: Colors.white,
-    //                         ),
-    //                       ),
-    //                       Text(
-    //                         'Current Balance',
-    //                         style: TextStyle(
-    //                           fontSize: 16,
-    //                           fontWeight: FontWeight.w600,
-    //                           color: Color(0xff848484),
-    //                         ),
-    //                       )
-    //                     ],
-    //                   ),
-    //                   Text(
-    //                     '257',
-    //                     style: TextStyle(
-    //                       fontSize: 40,
-    //                       fontWeight: FontWeight.w600,
-    //                       color: Colors.white,
-    //                     ),
-    //                   )
-    //                 ],
-    //               ),
-    //             ),
-    //             SizedBox(height: 32),
-    //             Column(
-    //               children: [
-    //                 Obx(() => CustomRadioListTile(
-    //                   title: 'Direct transfer to',
-    //                   image: 'assets/images/applePay_icon.png',
-    //                 )),
-    //                 Obx(() => CustomRadioListTile(
-    //                   title: 'Direct transfer to',
-    //                   image: 'assets/images/applePay_icon.png',
-    //                 )),
-    //                 Obx(() => CustomRadioListTile(
-    //                   title: 'Direct transfer to',
-    //                   image: 'assets/images/applePay_icon.png',
-    //                 )),
-    //               ],
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
+
   }
 }
