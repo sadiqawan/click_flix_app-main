@@ -83,7 +83,7 @@ class _AgencyLoginScreenState extends State<AgencyLoginScreen> {
                       alignment: Alignment.topRight,
                       child: InkWell(
                           onTap: () {
-                            Get.to(ForgotPassScreen());
+                            Get.to(AgencyForgotPassScreen());
                           },
                           child: Text(
                             "Forget Password !",

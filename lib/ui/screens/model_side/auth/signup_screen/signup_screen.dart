@@ -1,6 +1,7 @@
 import 'package:click_flex_ui/controller/AppController.dart';
 import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/core/constants/const_style.dart';
+import 'package:click_flex_ui/ui/screens/agency_screen/agency_auth_screen/agency_login_screen/agency_login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -180,7 +181,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(const LoginScreen());
+                          Get.to(const AgencyLoginScreen());
                           },
                         child: Text(
                           "Login",
