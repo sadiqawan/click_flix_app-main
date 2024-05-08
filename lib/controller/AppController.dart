@@ -7,12 +7,15 @@ class AppController extends GetxController {
   var isFav = false.obs;
   var index = 0.obs;
   var isMonthly="false".obs;
-
   var gender = "Select".obs;
-
-
-
   File? chosenImage;
+
+
+  var isSelected = false.obs;
+
+  void toggleSelection() {
+    isSelected.value = !isSelected.value;
+  }
 
   Future<void> pickImageFrom(ImageSource imageSource) async {
     try {
