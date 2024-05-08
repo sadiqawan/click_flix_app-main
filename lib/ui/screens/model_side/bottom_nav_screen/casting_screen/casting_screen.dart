@@ -161,9 +161,7 @@ class _CastingState extends State<Casting> {
                 location: appController.castingData[index]['location'],
                 status: appController.castingData[index]['status'],
                 date: appController.castingData[index]['date'],
-      
-      
-      
+
       
               ));
             },
