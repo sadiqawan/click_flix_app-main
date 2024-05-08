@@ -3,6 +3,7 @@ import 'package:click_flex_ui/ui/screens/auth/splash_screen/splash_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/about_us_screen/about_us_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/contact_us_screen/contact_us_screen.dart';
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/upgrade_account/upgrade_account.dart';
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/setting_screen/wallet_screen/my_wallet_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -201,7 +202,9 @@ class _SettingScreenState extends State<SettingScreen> {
                                     image: SvgPicture.asset(
                                         "assets/svg_images/my_wallet.svg"),
                                     title: "My Wallet",
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Get.to(()=> const MyWalletScreen());
+                                    }),
                               ],
                             ),
                           ),
