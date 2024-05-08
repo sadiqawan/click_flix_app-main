@@ -3,10 +3,8 @@ import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../core/constants/const_style.dart';
-import '../screens/auth/user_selection_screen/user_selection_screen.dart';
+import '../screens/model_side/auth/user_selection_screen/user_selection_screen.dart';
 import 'custom_button.dart';
 
 
@@ -181,18 +179,7 @@ class LastPage extends StatelessWidget {
               ),
             ),
 
-            // Padding(
-            //   padding: const EdgeInsets.only(bottom: 110.0),
-            //   child: SmoothPageIndicator(
-            //     count: 1,
-            //     effect: const SlideEffect(
-            //       dotHeight: 8,
-            //       dotWidth: 8,
-            //       dotColor: Colors.grey,
-            //       activeDotColor: Colors.white,
-            //     ), controller: controller,
-            //   ),
-            // ),
+
 
           ],
         ),
