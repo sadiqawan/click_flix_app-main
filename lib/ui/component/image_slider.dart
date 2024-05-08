@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/constants/const_style.dart';
+import '../screens/agency_screen/agency_auth_screen/agency_user_selection_screen/agency_user_selection_screen.dart';
 import '../screens/model_side/auth/user_selection_screen/user_selection_screen.dart';
 import 'custom_button.dart';
 
@@ -155,16 +156,14 @@ class LastPage extends StatelessWidget {
             ),
             InkWell(
               onTap: (){
-                Get.to(const UserSelectionScreen());
+                 Get.to(const AgencyUserSelectionScreen());
               },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Container(
                   alignment: Alignment.center,
                   width: double.infinity,
-
                   decoration:   BoxDecoration(
-
                     border: Border.all(
                       style: BorderStyle.solid,
                         color: ConstColor.gradientTwoColor.value),

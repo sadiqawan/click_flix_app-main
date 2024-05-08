@@ -1,12 +1,18 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import '../../../../../controller/AppController.dart';
-import '../../../../../core/constants/const_colors.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../../controller/AppController.dart';
+import '../../../../core/constants/const_colors.dart';
+import '../../../../core/constants/const_style.dart';
+import '../../../../core/constants/const_text.dart';
 import '../../../component/tabContainer.dart';
 import '../../../component/text.dart';
+import '../bottom_nav_screen/casting_screen/casting_details_screen.dart';
 import '../bottom_nav_screen/setting_screen/setting_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -18,9 +24,8 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   List<String> list = [
-    "Posts",
-    "Reels",
-    "Storys",
+    "About",
+    "MyCasting",
   ];
 
   final appController = Get.find<AppController>();
@@ -33,266 +38,383 @@ class _ProfileScreenState extends State<ProfileScreen> {
       length: list.length,
       child: Scaffold(
           backgroundColor: Colors.black,
-          body: LayoutBuilder(
-            builder: (context, constraints) {
-              double height = constraints.maxHeight;
-              double width = constraints.maxWidth;
+          body: Column(
+            children: [
+            Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.center,
+            children: [
+              Container(
+                height:250.h,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/bg_blur_image.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 32.h,
+                child: Container(
+                  width: width,
 
-              return Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    height: height * 0.3,
-                    width: double.infinity,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/bg_blur_image.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: height * 0.2,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: const LinearGradient(
-                          colors: [Color(0xffA513B8), Color(0xffEA3B12)],
-                        ),
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(3.0),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          radius: 60,
-                          backgroundImage:
-                          AssetImage('assets/images/image_profile.png'),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    top: height * 0.1,
-                    right: width * 0.85,
-                    child: InkWell(
-                      onTap: () {
-                        Get.back(result: const SettingScreen());
-                      },
-                      child:   SvgPicture.asset("assets/svg_images/icon_back.svg"),
-                    ),
-                  ),
-                  Positioned(
-                    top: height * 0.1,
-                    left: width * 0.85,
-                    child: SvgPicture.asset(
-                      "assets/svg_images/icon_solor.svg",
-                      width: width * .032,
-                      height: height * .032,
-                    ),
-                  ),
-                  Positioned(
-                    top: height * 0.3, // Adjust the position as needed
-                    child: Container(
-                        height: height * 0.6,
-                        width: width * 0.99,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                  child:   Padding(
+                    padding:   EdgeInsets.only(left: 16.w,right: 16.w,top: 24.h),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment:MainAxisAlignment.spaceBetween,
                           children: [
-                            SizedBox(
-                              height: height * 0.09,
+                            InkWell(
+                              onTap: () {
+                                Get.back(result:   const SettingScreen());
+                              },
+                              child:   SvgPicture.asset("assets/svg_images/icon_back.svg"),
                             ),
-                            text(
-                              data: 'User Name',
-                              color: Colors.white,
-                              f_size: 18,
-                              f_weight: FontWeight.w700,
+                            SvgPicture.asset(
+                              "assets/svg_images/icon_solor.svg",
+                              width: width * .032,
+                              height: height * .032,
                             ),
-                            text(
-                                data: 'Islamabad, Pakistan',
-                                f_size: 15,
-                                color: const Color(0xff848484),
-                                f_weight: FontWeight.w500),
-                            SizedBox(
-                              height: height * 0.04,
-                            ),
-                            Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment.spaceEvenly,
+                          ],
+                        ),
+                        Padding(
+                          padding:  EdgeInsets.only(top: 90.h),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            radius: 60,
+                            backgroundImage:
+                            AssetImage('assets/images/image_profile.png'),
+                          ),
+                        ),
+
+                        Text("mfsdfdssf agency",style: mediumStyle,),
+
+                        SizedBox(height: 8.h,),
+                        Text("agency / cairo, egypt ",style: desStyle,),
+                        SizedBox(height: 16.h,),
+                        Row(
+                          mainAxisAlignment:
+                          MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
                               children: [
-                                Column(
-                                  children: [
-                                    text(
-                                        data: '765',
-                                        f_size: 18,
-                                        color: Colors.white,
-                                        f_weight: FontWeight.w500),
-                                    text(
-                                        data: 'Likes',
-                                        f_size: 18,
-                                        color: const Color(0xff333333),
-                                        f_weight: FontWeight.w600),
-                                  ],
-                                ),
-                                Container(
-                                  height: 47,
-                                  width: 1.2,
-                                  color: const Color(0xff333333),
-                                ),
-                                Column(
-                                  children: [
-                                    text(
-                                        data: '123',
-                                        f_size: 18,
-                                        color: Colors.white,
-                                        f_weight: FontWeight.w500),
-                                    text(
-                                        data: 'Photo',
-                                        f_size: 18,
-                                        color: const Color(0xff333333),
-                                        f_weight: FontWeight.w600),
-                                  ],
-                                )
+                                text(
+                                    data: '765',
+                                    f_size: 18,
+                                    color: Colors.white,
+                                    f_weight: FontWeight.w500),
+                                text(
+                                    data: 'Likes',
+                                    f_size: 18,
+                                    color: const Color(0xff333333),
+                                    f_weight: FontWeight.w600),
                               ],
                             ),
-                            SizedBox(
-                              height: height * 0.02,
+                            Container(
+                              height: 32.h,
+                              width: 1.2,
+                              color: const Color(0xff333333),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  bottom: 16.0, top: 24),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(24),
-                                    border: Border.all(
-                                        color: ConstColor.greyColor.value)),
-                                width: Get.width * 0.79,
-                                height: Get.height * 0.056,
-                                child: ListView.builder(
-                                    physics: const ScrollPhysics(),
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: list.length,
-                                    itemBuilder: (context, index) {
-                                      return InkWell(
-                                        onTap: () {
-                                          setState(() {
-                                            appController.index.value = index;
-                                          });
-                                        },
-                                        child: TabContainer(
-                                          linerGradient: appController
-                                              .index ==
-                                              index
-                                              ? LinearGradient(
-                                              begin: Alignment.topLeft,
-                                              end: Alignment.topRight,
-                                              colors: [
-                                                ConstColor
-                                                    .gradientOneColor
-                                                    .value,
-                                                ConstColor
-                                                    .gradientTwoColor
-                                                    .value,
-                                              ])
-                                              : const LinearGradient(
-                                              begin: Alignment.topLeft,
-                                              end: Alignment.topRight,
-                                              colors: [
-                                                Colors.transparent,
-                                                Colors.transparent,
-                                              ]),
-                                          textColor: appController.index ==
-                                              index
-                                              ? ConstColor.primaryColor.value
-                                              : ConstColor.greyColor.value,
-                                          text: list[index],
-                                          onPress: () {},
-                                        ),
-                                      );
-                                    }),
-                              ),
-                            ),
-                            Visibility(
-                                visible: appController.index.value == 0
-                                    ? true
-                                    : false,
-                                child: const Expanded(child: ModelScreen())),
-                            Visibility(
-                                visible: appController.index.value == 1
-                                    ? true
-                                    : false,
-                                child: Expanded(
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.only(bottom: 16.0),
-                                      child: Container(
-                                        height: 300,
-                                        color: Colors.yellow,
-                                      ),
-                                    ))),
-                            Visibility(
-                                visible: appController.index.value == 2
-                                    ? true
-                                    : false,
-                                child: Expanded(
-                                    child: Padding(
-                                      padding:
-                                      const EdgeInsets.only(bottom: 16.0),
-                                      child: Container(
-                                        height: 300,
-                                        color: Colors.red,
-                                      ),
-                                    ))),
+                            Column(
+                              children: [
+                                text(
+                                    data: '123',
+                                    f_size: 18,
+                                    color: Colors.white,
+                                    f_weight: FontWeight.w500),
+                                text(
+                                    data: 'Photo',
+                                    f_size: 18,
+                                    color: const Color(0xff333333),
+                                    f_weight: FontWeight.w600),
+                              ],
+                            )
                           ],
-                        )),
+                        ),
+
+
+                        Padding(
+                          padding:   EdgeInsets.only(top: 16.h),
+                          child: Container(
+                            height: 500.h,
+                            child: Column(
+                              children: [
+                                Container(
+
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(24),
+                                      border: Border.all(color: ConstColor.greyColor.value)),
+                                  width:width,
+                                  height: 48.h,
+                                  child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: list.length,
+                                      itemBuilder: (context, index) {
+                                        return InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              appController.index.value = index;
+                                            });
+                                          },
+                                          child: TabContainer(
+                                            width: 185.toDouble(),
+                                            linerGradient: appController.indexAbout == index
+                                                ? LinearGradient(
+                                                begin: Alignment.topLeft,
+                                                end: Alignment.topRight,
+                                                colors: [
+                                                  ConstColor.gradientOneColor.value,
+                                                  ConstColor.gradientTwoColor.value,
+                                                ])
+                                                : const LinearGradient(
+                                                begin: Alignment.topLeft,
+                                                end: Alignment.topRight,
+                                                colors: [
+                                                  Colors.transparent,
+                                                  Colors.transparent,
+                                                ]),
+                                            textColor: appController.indexAbout == index
+                                                ? ConstColor.primaryColor.value
+                                                : ConstColor.greyColor.value,
+                                            text: list[index],
+                                            onPress: () {
+                                              setState(() {
+                                                appController.indexAbout.value = index;
+                                              });
+                                            },
+                                          ),
+                                        );
+                                      }),
+                                ),
+
+                                Visibility(
+                                  visible: appController.indexAbout.value == 0 ? true : false,
+                                  child: const MyCasting(),
+                                ),
+                                Visibility(
+                                  visible: appController.indexAbout.value == 1 ? true : false,
+                                  child:const Casting(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ],
-              );
-            },
+
+
+                ),
+              ),
+
+            ],
+          ),
+            ],
           )),
     );
   }
 }
 
-class ModelScreen extends StatefulWidget {
-  const ModelScreen({super.key});
+
+
+// Casting
+class Casting extends StatefulWidget {
+  const Casting({super.key});
 
   @override
-  State<ModelScreen> createState() => _ModelScreenState();
+  State<Casting> createState() => _CastingState();
 }
 
-class _ModelScreenState extends State<ModelScreen> {
-  final appController = Get.find<AppController>();
-
-  List data = [
-    "assets/images/image_dash_one.png",
-    "assets/images/image_dash_one.png",
-    "assets/images/image_dash_one.png",
-    "assets/images/image_dash_two.png",
-  ];
+class _CastingState extends State<Casting> {
+  AppController appController = Get.put(AppController());
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-    final commentsController = TextEditingController();
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
-        mainAxisExtent: 256, // Adjust the height of each item here
+    return Expanded(
+      child: ListView.builder(
+        itemCount: appController.castingData.length,
+        itemBuilder: (BuildContext context, int index) {
+          final String image = appController.castingData[index]['image'];
+          final String title = appController.castingData[index]['title'];
+          final String date = appController.castingData[index]['date'];
+          final String location = appController.castingData[index]['location'];
+          final String status = appController.castingData[index]['status'];
+          return InkWell(
+            onTap: (){
+              Get.to(()=> CastingDetailScreen(
+                image: appController.castingData[index]['image'],
+                title: appController.castingData[index]['title'],
+                location: appController.castingData[index]['location'],
+                status: appController.castingData[index]['status'],
+                date: appController.castingData[index]['date'],
+              ));
+            },
+            child: Padding(
+              padding:   EdgeInsets.only(left: 10.w, top: 8.h, bottom: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      width: .5,
+                      color: ConstColor.greyColor.value,
+                    )),
+                height: 150.h,
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(image), fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                        height: 115,
+                        width: 115,
+                        // color: Colors.red,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0, top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 3.0),
+                            child: Text(title,style: normalStyle,),
+                          ),
+                          SizedBox(height: 5,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                  Icons.pin_drop_outlined,
+                                  color: ConstColor.lightblackColor.value
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Text(location,style: desStyleWithWhite,)
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                  Icons.date_range_outlined,
+                                  color: ConstColor.lightblackColor.value
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Text(date,style: desStyleWithWhite,)
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                  Icons.currency_exchange,
+                                  color: ConstColor.lightblackColor.value
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Text(status,style: desStyleWithWhite,)
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
-      itemCount: data.length,
-      itemBuilder: (context, index) {
-        final image = appController.modelsData[index]['image'];
-        return Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image:
-              DecorationImage(image: AssetImage(image), fit: BoxFit.fill)),
-        );
-      },
     );
   }
 }
+
+// MyCasting
+
+
+class MyCasting extends StatefulWidget {
+  const MyCasting({super.key});
+
+  @override
+  State<MyCasting> createState() => _MyCastingState();
+}
+
+class _MyCastingState extends State<MyCasting> {
+  AppController appController = Get.put(AppController());
+  ConstColor constColor = Get.put(ConstColor());
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding:   EdgeInsets.only(top: 16.h),
+              child: Container(
+                padding: EdgeInsets.only(top: 16.h,left: 16.w,right: 16.h,bottom: 16.h),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.sp),
+                    border: Border.all(color: ConstColor.greyColor.value.withOpacity(.5))
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                        child: Text("About",style: mediumStyle,)),
+                    SizedBox(height: 16.h,),
+                    Text(aboutText,style: desStyle,)
+
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding:   EdgeInsets.only(top: 16.h),
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.only(top: 16.h,left: 16.w,right: 16.h,bottom: 16.h),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12.sp),
+                    border: Border.all(color: ConstColor.greyColor.value.withOpacity(.5))
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Detail",style: mediumStyle,),
+                    SizedBox(height: 16.h,),
+                    Text("Location",style: normalStyle,),
+                    SizedBox(height: 4.h,),
+                    Text("cairo, egypt",style: desStyle,),
+                    SizedBox(height: 16.h,),
+                    Text("Joining Detail",style: normalStyle,),
+                    SizedBox(height: 4.h,),
+                    Text("cairo, egypt",style: desStyle,),
+                    SizedBox(height: 16.h,),
+                    Text("Website ",style: normalStyle,),
+                    SizedBox(height: 4.h,),
+                    Text("www.mfsdfdssf agency.com",style: normalStyle.copyWith(color: ConstColor.blueColor.value),),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
