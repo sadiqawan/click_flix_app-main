@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -85,7 +86,7 @@ class _CastingScreenState extends State<CastingScreen> {
                             });
                           },
                           child: TabContainer(
-                            width: 185.toDouble(),
+                            width: 163.w,
                             linerGradient: appController.index == index
                                 ? LinearGradient(
                                     begin: Alignment.topLeft,
@@ -114,12 +115,13 @@ class _CastingScreenState extends State<CastingScreen> {
 
               Visibility(
                 visible: appController.index.value == 0 ? true : false,
-                child: Casting(),
+                child: const Casting(),
               ),
               Visibility(
                   visible: appController.index.value == 1 ? true : false,
-                  child: MyCasting(),
-              )],
+                  child: const MyCasting(),
+              ),
+            ],
           ),
         ),
       ),

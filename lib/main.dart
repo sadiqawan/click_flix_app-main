@@ -14,7 +14,7 @@ void main() {
     minTextAdapt: true,
     builder: (BuildContext context, Widget? child) {
       return const MyApp();
-    },
+    }
   ));
 }
 class MyApp extends StatelessWidget {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appController =Get.put(AppController());
+    final AppController appController =Get.put(AppController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Click Flex',
