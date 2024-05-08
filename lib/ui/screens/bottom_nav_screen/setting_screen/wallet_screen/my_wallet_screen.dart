@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../controller/AppController.dart';
@@ -22,83 +23,88 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
-    return Padding(
-      padding: EdgeInsets.only(
-        top: height * .052,
-        right: width * .040,
-        left: width * .030,
-      ),
-      child: Scaffold(
-          backgroundColor: Colors.black,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_outlined,
-                    color: Colors.white,
-                  ),
-                ),
-                Text(
-                  'Wallet',
-                  style: normalStyle,
-                ),
-                const SizedBox()
-              ],
-            ),
-            Container(
-              height: 100,
-              width: width * .9,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.topLeft,
-                    colors: [
-                      ConstColor.gradientOneColor.value.withOpacity(.7),
-                      ConstColor.gradientTwoColor.value.withOpacity(.7),
-
-                    ]),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: 24.h,
+          right:16.w,
+          left: 16.w,
+        ),
+        child: Scaffold(
+            backgroundColor: Colors.black,
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Good Job',
-                        style: headingStyle,
-                      ),
-                      Text(
-                        'Current Balance',
-                        style: desStyle,
-                      )
-                    ],
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                   Text(
-                    '257\$',
-                    style: headingStyle,
-                  )
+                    'Wallet',
+                    style: normalStyle,
+                  ),
+                  const SizedBox()
                 ],
               ),
-            ),
-            
-            Align(
-              alignment: Alignment.centerLeft,
-
-                child: Text('Withdrawing Methods ',style: headingStyle.copyWith(fontSize: 16),)),
-            CustomRadioListTile(title: 'title', image: 'assets/images/applePay_icon.png'),
-            CustomRadioListTile(title: 'title', image: 'assets/images/applePay_icon.png'),
-            CustomRadioListTile(title: 'title', image: 'assets/images/applePay_icon.png')
-          ],
+              Container(
+                height: 100,
+                width: width * .9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        ConstColor.gradientOneColor.value.withOpacity(.1),
+                        ConstColor.gradientTwoColor.value.withOpacity(.1),
+      
+                      ]),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Good Job',
+                          style: headingStyle,
+                        ),
+                        Text(
+                          'Current Balance',
+                          style: desStyle,
+                        )
+                      ],
+                    ),
+                    Text(
+                      '257\$',
+                      style: headingStyle,
+                    )
+                  ],
+                ),
+              ),
+              
+              Align(
+                alignment: Alignment.centerLeft,
+      
+                  child: Text('Withdrawing Methods ',style: headingStyle.copyWith(fontSize: 16.sp),)),
+              SizedBox(height: 24.h,),
+              CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png'),
+              SizedBox(height: 24.h,),
+              CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png'),
+              SizedBox(height: 16.h,),
+              CustomRadioListTile(title: 'Direct Transfer To', image: 'assets/images/applePay_icon.png')
+            ],
+          ),
         ),
       ),
     );

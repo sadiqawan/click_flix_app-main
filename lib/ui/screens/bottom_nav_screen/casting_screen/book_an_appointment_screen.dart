@@ -1,3 +1,4 @@
+import 'package:click_flex_ui/ui/screens/bottom_nav_screen/bottom_nav_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -142,7 +143,7 @@ class _BookAnAppointmentScreenState extends State<BookAnAppointmentScreen> {
                                       //Buttons
                                       CommonButton(
                                         onPress: () {
-                                          Navigator.pop(context);
+                                          Get.to(const BottomNavScreen());
                                         },
                                         title: 'Submit',
                                       ),

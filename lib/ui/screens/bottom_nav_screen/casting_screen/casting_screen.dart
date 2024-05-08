@@ -85,7 +85,7 @@ class _CastingScreenState extends State<CastingScreen> {
                             });
                           },
                           child: TabContainer(
-                            width: 150.toDouble(),
+                            width: 185.toDouble(),
                             linerGradient: appController.index == index
                                 ? LinearGradient(
                                     begin: Alignment.topLeft,
@@ -114,12 +114,11 @@ class _CastingScreenState extends State<CastingScreen> {
 
               Visibility(
                 visible: appController.index.value == 0 ? true : false,
-                child: const Expanded(child: Casting()),
+                child: Casting(),
               ),
               Visibility(
                   visible: appController.index.value == 1 ? true : false,
-                  child: const Expanded(
-                      child: MyCasting()),
+                  child: MyCasting(),
               )],
           ),
         ),
@@ -144,114 +143,116 @@ class _CastingState extends State<Casting> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: appController.castingData.length,
-      itemBuilder: (BuildContext context, int index) {
-        final String image = appController.castingData[index]['image'];
-        final String title = appController.castingData[index]['title'];
-        final String date = appController.castingData[index]['date'];
-        final String location = appController.castingData[index]['location'];
-        final String status = appController.castingData[index]['status'];
-
-        return InkWell(
-          onTap: (){
-            Get.to(()=> CastingDetailScreen(
-              image: appController.castingData[index]['image'],
-              title: appController.castingData[index]['title'],
-              location: appController.castingData[index]['location'],
-              status: appController.castingData[index]['status'],
-              date: appController.castingData[index]['date'],
-
-
-
-
-            ));
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    width: .5,
-                    color: ConstColor.greyColor.value,
-                  )),
-              height: 150,
-              width: double.infinity,
-
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(image), fit: BoxFit.cover),
-                          borderRadius: BorderRadius.circular(15)
+    return Expanded(
+      child: ListView.builder(
+        itemCount: appController.castingData.length,
+        itemBuilder: (BuildContext context, int index) {
+          final String image = appController.castingData[index]['image'];
+          final String title = appController.castingData[index]['title'];
+          final String date = appController.castingData[index]['date'];
+          final String location = appController.castingData[index]['location'];
+          final String status = appController.castingData[index]['status'];
+      
+          return InkWell(
+            onTap: (){
+              Get.to(()=> CastingDetailScreen(
+                image: appController.castingData[index]['image'],
+                title: appController.castingData[index]['title'],
+                location: appController.castingData[index]['location'],
+                status: appController.castingData[index]['status'],
+                date: appController.castingData[index]['date'],
+      
+      
+      
+      
+              ));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      width: .5,
+                      color: ConstColor.greyColor.value,
+                    )),
+                height: 150,
+                width: double.infinity,
+      
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(image), fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(15)
+                        ),
+                        height: 115,
+                        width: 115,
+                        // color: Colors.red,
                       ),
-                      height: 115,
-                      width: 115,
-                      // color: Colors.red,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0, top: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 3.0),
-                          child: Text(title,style: normalStyle,),
-                        ),
-                        SizedBox(height: 5,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              Icons.pin_drop_outlined,
-                                color: ConstColor.lightblackColor.value
-                            ),
-                           SizedBox(
-                              width: 20,
-                            ),
-                            Text(location,style: desStyleWithWhite,)
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              Icons.date_range_outlined,
-                                color: ConstColor.lightblackColor.value
-                            ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15.0, top: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 3.0),
+                            child: Text(title,style: normalStyle,),
+                          ),
+                          SizedBox(height: 5,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.pin_drop_outlined,
+                                  color: ConstColor.lightblackColor.value
+                              ),
                              SizedBox(
-                              width: 20,
-                            ),
-                            Text(date,style: desStyleWithWhite,)
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Icon(
-                              Icons.currency_exchange,
-                                color: ConstColor.lightblackColor.value
-                            ),
-                          SizedBox(
-                              width: 20,
-                            ),
-                            Text(status,style: desStyleWithWhite,)
-                          ],
-                        ),
-                      ],
-                    ),
-                  )
-                ],
+                                width: 20,
+                              ),
+                              Text(location,style: desStyleWithWhite,)
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.date_range_outlined,
+                                  color: ConstColor.lightblackColor.value
+                              ),
+                               SizedBox(
+                                width: 20,
+                              ),
+                              Text(date,style: desStyleWithWhite,)
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Icon(
+                                Icons.currency_exchange,
+                                  color: ConstColor.lightblackColor.value
+                              ),
+                            SizedBox(
+                                width: 20,
+                              ),
+                              Text(status,style: desStyleWithWhite,)
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
@@ -278,131 +279,133 @@ class _MyCastingState extends State<MyCasting> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: appController.castingData.length,
-      itemBuilder: (BuildContext context, int index) {
-        final String image = appController.castingData[index]['image'];
-        final String title = appController.castingData[index]['title'];
-        final String date = appController.castingData[index]['location'];
-        final String location = appController.castingData[index]['date'];
-        final String status = appController.castingData[index]['status'];
+    return Expanded(
+      child: ListView.builder(
+        itemCount: appController.castingData.length,
+        itemBuilder: (BuildContext context, int index) {
+          final String image = appController.castingData[index]['image'];
+          final String title = appController.castingData[index]['title'];
+          final String date = appController.castingData[index]['location'];
+          final String location = appController.castingData[index]['date'];
+          final String status = appController.castingData[index]['status'];
 
-        return Padding(
-          padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  width: .5,
-                  color: ConstColor.greyColor.value,
-                )),
-            height: 180,
+          return Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    width: .5,
+                    color: ConstColor.greyColor.value,
+                  )),
+              height: 180,
 
 
-            child: InkWell(
-              onTap: (){
-                Get.to(()=> CastingDetailScreen(
-                  image: appController.castingData[index]['image'],
-                  title: appController.castingData[index]['title'],
-                  location: appController.castingData[index]['location'],
-                  status: appController.castingData[index]['status'],
-                  date: appController.castingData[index]['date'],
-                ));
+              child: InkWell(
+                onTap: (){
+                  Get.to(()=> CastingDetailScreen(
+                    image: appController.castingData[index]['image'],
+                    title: appController.castingData[index]['title'],
+                    location: appController.castingData[index]['location'],
+                    status: appController.castingData[index]['status'],
+                    date: appController.castingData[index]['date'],
+                  ));
 
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0,top: 5),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: AssetImage(image), fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(15)
-                            ),
-                            
-                            height: 115,
-                            width: 115,
-                            // color: Colors.red,
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15.0, top: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 3.0),
-                                child: Text(title,style: normalStyle,),
-                              ),
-                              SizedBox(height: 8,),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                      Icons.pin_drop_outlined,
-                                      color: ConstColor.lightblackColor.value
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(location,style: desStyleWithWhite,)
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                      Icons.date_range_outlined,
-                                      color: ConstColor.lightblackColor.value
-                                  ),
-                                 SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(date,style: desStyleWithWhite,)
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(
-                                      Icons.currency_exchange,
-                                      color: ConstColor.lightblackColor.value
-                                  ),
-                                 SizedBox(
-                                    width: 20,
-                                  ),
-                                  Text(status,style: desStyleWithWhite,)
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 5.0,left: 8),
-                      child: Row(
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
                         children: [
-                          const Icon(Icons.check_box,
-                            color: Colors.white,),
-                          SizedBox(width: 10,),
-                          const Text('Accepted',style:TextStyle(color: Colors.white),)
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0,top: 5),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(image), fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(15)
+                              ),
+
+                              height: 115,
+                              width: 115,
+                              // color: Colors.red,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15.0, top: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 3.0),
+                                  child: Text(title,style: normalStyle,),
+                                ),
+                                SizedBox(height: 8,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                        Icons.pin_drop_outlined,
+                                        color: ConstColor.lightblackColor.value
+                                    ),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(location,style: desStyleWithWhite,)
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                        Icons.date_range_outlined,
+                                        color: ConstColor.lightblackColor.value
+                                    ),
+                                   SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(date,style: desStyleWithWhite,)
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                        Icons.currency_exchange,
+                                        color: ConstColor.lightblackColor.value
+                                    ),
+                                   SizedBox(
+                                      width: 20,
+                                    ),
+                                    Text(status,style: desStyleWithWhite,)
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
                         ],
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5.0,left: 8),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.check_box,
+                              color: Colors.white,),
+                            SizedBox(width: 10,),
+                            const Text('Accepted',style:TextStyle(color: Colors.white),)
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

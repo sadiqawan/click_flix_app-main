@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -150,8 +151,8 @@ class _ModelsScreenState extends State<ModelsScreen> {
 
                                             },
                                             child: Container(
-                                              height: height * .095,
-                                              width: width * .170,
+                                              height:72.w,
+                                              width: 72.h,
                                               decoration: BoxDecoration(
                                                   border: Border.all(
                                                       width: 2,
@@ -163,9 +164,7 @@ class _ModelsScreenState extends State<ModelsScreen> {
                                                   )),
                                             ),
                                           ),
-                                          const SizedBox(
-                                            height: 4,
-                                          ),
+
                                           Text(
                                             rowData[index]['name'],
                                             style:
@@ -236,22 +235,12 @@ class _ModelsScreenState extends State<ModelsScreen> {
                       ),
                       Visibility(
                           visible: appController.index.value == 1 ? true : false,
-                          child: Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(bottom: 16.0),
-                                child: Container( height: 300,
-                                  color: Colors.yellow,),
-                              ))),
+                          child: const Expanded(
+                              child: ModelScreen())),
                       Visibility(
                           visible: appController.index.value == 2 ? true : false,
-                          child: Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(bottom: 16.0),
-                                child: Container(
-                                  height: 300,
-                                  color: Colors.red,
-                                ),
-                              ))),
+                          child: const Expanded(
+                              child: ModelScreen())),
 
                       // Padding(
                       //   padding: const EdgeInsets.only(bottom: 16.0, top: 24),
@@ -383,9 +372,13 @@ class _ModelScreenState extends State<ModelScreen> {
         return Container(
 
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            image: DecorationImage(image: AssetImage(image),
-            fit: BoxFit.fill
+            borderRadius: BorderRadius.circular(16),
+            image: DecorationImage(
+                fit:BoxFit.cover,
+                image: AssetImage(
+
+                image),
+
             )
           ),
           //height: 456, // Adjust the height of each item here

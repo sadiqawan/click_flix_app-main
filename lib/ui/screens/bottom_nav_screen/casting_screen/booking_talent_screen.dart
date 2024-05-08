@@ -281,7 +281,7 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
                 items: const ['Select', 'Option 2', 'Option 3', 'Option 4'],
               ),
               const SizedBox(
-                height: 8,
+                height: 24,
               ),
         
               CommonButton(

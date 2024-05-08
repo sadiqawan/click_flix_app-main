@@ -2,6 +2,7 @@ import 'package:click_flex_ui/ui/screens/bottom_nav_screen/casting_screen/bookin
 import 'package:click_flex_ui/ui/screens/bottom_nav_screen/casting_screen/casting_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -50,6 +51,7 @@ class _CastingDetailScreenState extends State<CastingDetailScreen> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
+
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
       body: Padding(
@@ -120,9 +122,9 @@ class _CastingDetailScreenState extends State<CastingDetailScreen> {
 Widget bottomSheet(BuildContext context, title, location, status, date) {
   return Container(
     width: double.infinity,
-    height: 650,
+    height: 600.h,
     child: Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding:   EdgeInsets.all(20.sp),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -198,7 +200,7 @@ Widget bottomSheet(BuildContext context, title, location, status, date) {
               ),
             ),
           ),
-          SizedBox(height: 8,),
+          SizedBox(height: 16.h,),
           Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -230,7 +232,7 @@ Widget bottomSheet(BuildContext context, title, location, status, date) {
               ),
             ),
           ),
-          SizedBox(height: 7,),
+          SizedBox(height: 16.h,),
           CommonButton(onPress: (){
             Get.to(()=> const BookingTalentScreen());
           }, title: 'Apply Now',)
