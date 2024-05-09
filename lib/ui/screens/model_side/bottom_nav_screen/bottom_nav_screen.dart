@@ -141,6 +141,13 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     CastingScreen(),
     SettingScreen(),
   ];
+  final List<String> _pagesScreen = const [
+    'assets/svg_images/explore.svg',
+    'assets/svg_images/model.svg',
+    'assets/svg_images/casting.svg',
+    'assets/svg_images/menu.svg',
+  ];
+
   final List<String> _imagePaths = const [
     'assets/svg_images/explore.svg',
     'assets/svg_images/model.svg',
@@ -148,6 +155,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     'assets/svg_images/menu.svg',
   ];
 
+  final Color _activeColor = Colors.white;
+  final Color _inactiveColor = Colors.grey;
   int _selectedIndex = 0;
 
   @override
@@ -166,13 +175,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           // color: ConstColor.greyColor.value.withOpacity(.3),
           height: 60,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(_pages.length, (index) {
               return IconButton(
                 icon: SvgPicture.asset(
-                  _imagePaths[index],
+                  _pagesScreen[index],
                   width: 26.w,
                   height: 26.h,
+                  color: _selectedIndex == index ? _activeColor : _inactiveColor,
+
                   // Adjust width and height as needed
                 ),
                 onPressed: () {
