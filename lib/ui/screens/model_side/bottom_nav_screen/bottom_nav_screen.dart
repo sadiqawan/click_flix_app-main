@@ -165,12 +165,11 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
-<<<<<<< HEAD
-color: const Color(0xff333335),
-=======
 
-        color: Color(0xff333335),
->>>>>>> a82a59fc9ad8d6ae381330bd481fe74eb021b9bd
+color: const Color(0xff333335),
+
+
+
         shape: const CircularNotchedRectangle(),
         child: Container(
           decoration: BoxDecoration(
