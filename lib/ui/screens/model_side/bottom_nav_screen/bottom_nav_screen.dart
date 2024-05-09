@@ -86,30 +86,7 @@
 //         shape: CircleBorder(),
 //       ),
 //       /*
-//      floatingActionButton: Container(
-//         decoration: BoxDecoration(
-//         shape: BoxShape.circle,
-//         gradient: LinearGradient(
-//           begin:Alignment.topCenter,
-//           end:Alignment. bottomCenter,
-//         colors: [
-//           ConstColor.gradientTwoColor.value,
-//           ConstColor.gradientOneColor.value], // Specify your gradient colors
-//
-//     ),),
-//         child: FloatingActionButton(
-//
-//           backgroundColor: Colors.transparent,
-//          shape: const CircleBorder(
-//            side: BorderSide(color: Colors.blueAccent)
-//          ),
-//         onPressed: () {
-//             Get.to(reel_screen());
-//           },
-//           child: SvgPicture.asset("assets/svg_images/add.svg",width: 30,height: 30,),
-//
-//         ),
-//       ),
+
 //       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 //
 //       bottomNavigationBar: AnimatedBottomNavigationBar(
@@ -140,7 +117,11 @@
 import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/ui/screens/model_side/bottom_nav_screen/setting_screen/setting_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../reel_screen/reel_screen.dart';
 import 'casting_screen/casting_screen.dart';
 import 'exploer_screen/exploer_screen.dart';
 import 'models_screen/models_screen.dart';
@@ -160,10 +141,10 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     SettingScreen(),
   ];
   final List<String> _imagePaths = const [
-    'assets/images/visa-logo.png',
-    'assets/images/visa-logo.png',
-    'assets/images/visa-logo.png',
-    'assets/images/visa-logo.png',
+    'assets/svg_images/explore.svg',
+    'assets/svg_images/model.svg',
+    'assets/svg_images/casting.svg',
+    'assets/svg_images/menu.svg',
   ];
 
   int _selectedIndex = 0;
@@ -174,16 +155,17 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
-        color: ConstColor.blackColor.value.withOpacity(.3),
+color: Color(0xff333335),
         shape: const CircularNotchedRectangle(),
         child: Container(
-           color: ConstColor.greyColor.value.withOpacity(.3),
+           // color: ConstColor.greyColor.value.withOpacity(.3),
           height: 60,
+
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(_pages.length, (index) {
               return IconButton(
-                icon: Image.asset(
+                icon: SvgPicture.asset(
                   _imagePaths[index],
                   width: 24,
                   height: 24,
@@ -200,15 +182,41 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
+      // floatingActionButton: FloatingActionButton(
+      //
+      //   onPressed: () {
+      //     // Add your onPressed function here
+      //   },
+      //   tooltip: 'Add',
+      //   child: Icon(Icons.add),
+      //   elevation: 2.0,
+      //   shape: const CircleBorder(),
+      // ),
 
-        onPressed: () {
-          // Add your onPressed function here
-        },
-        tooltip: 'Add',
-        child: Icon(Icons.add),
-        elevation: 2.0,
-        shape: const CircleBorder(),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          gradient: LinearGradient(
+              begin:Alignment.topCenter,
+              end:Alignment. bottomCenter,
+              colors: [
+                ConstColor.gradientTwoColor.value,
+                ConstColor.gradientOneColor.value],
+              // Specify your gradient colors
+
+          ),),
+        child: FloatingActionButton(
+
+          backgroundColor: Colors.transparent,
+          shape: const CircleBorder(
+              side: BorderSide(color: Colors.blueAccent)
+          ),
+          onPressed: () {
+            Get.to(reel_screen());
+          },
+          child: SvgPicture.asset("assets/svg_images/add.svg",width: 30,height: 30,),
+
+        ),
       ),
     );
   }
