@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../../../../../../../core/constants/const_style.dart';
+import '../../../../../../component/custom_text_field.dart';
+import '../../../../../../component/pop_over.dart';
 import '../wallet_sucess_screen/wallet_sucess_screen.dart';
 
 class GetMoneyScreen extends StatefulWidget {
@@ -18,6 +20,7 @@ class GetMoneyScreen extends StatefulWidget {
 }
 
 class _GetMoneyScreenState extends State<GetMoneyScreen> {
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     TextEditingController bottomcontroller = TextEditingController();
@@ -39,7 +42,7 @@ class _GetMoneyScreenState extends State<GetMoneyScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TopBackWithTitle(
-                    title: "Book Appointment ",
+                    title: "Get Money ",
                     onPress: () {
                       Get.back();
                     }),
@@ -106,49 +109,54 @@ class _GetMoneyScreenState extends State<GetMoneyScreen> {
                   height: 32.h,
                 ),
                 CommonButton(
+                    title: "Balance Withdrawal",
                     onPress: () {
-                      Get.to(WalletSucessesScreen());
-                      // showModalBottomSheet(
-                      //     context: context,
-                      //     backgroundColor: Colors.black,
-                      //     builder: (BuildContext context) {
-                      //       return Popover(
-                      //         child: Container(
-                      //           color:ConstColor.blackColor.value,
-                      //           height:200.h,
-                      //           width: width,
-                      //           margin: EdgeInsets.symmetric(
-                      //               horizontal:width),
-                      //           child: Column(
-                      //             children: <Widget>[
-                      //               CustomTextFieldWithImage2(
-                      //
-                      //                 controller: bottomcontroller,
-                      //                 hintText: 'Enter Email',
-                      //                 labelText: 'Email Address',
+                      editIcon(context, emailController);
+                      //  Get.to(WalletSucessesScreen());
+                      //       showModalBottomSheet(
+                      //           context: context,
+                      //           backgroundColor: Colors.black, // Set background color here
+                      //           builder: (BuildContext context) {
+                      //             return Popover(
+                      //               child: Container(
+                      //                 color: Colors.black, // This line might need correction
+                      //                 height: 200.h,
+                      //                 width: width,
+                      //                 margin: EdgeInsets.symmetric(horizontal: width),
+                      //                 child: Column(
+                      //                   children: <Widget>[
+                      //                     CustomTextFieldWithImage2(
+                      //                       controller: bottomcontroller,
+                      //                       hintText: 'Enter Email',
+                      //                       labelText: 'Email Address',
+                      //                     ),
+                      //                     SizedBox(height: 16.h,),
+                      //                     CustomTextFieldWithImage2(
+                      //                       controller: datecontroller,
+                      //                       hintText: 'DD/MM/YY',
+                      //                       labelText: 'Date Of birth',
+                      //                     ),
+                      //                     SizedBox(height: 16.h,),
+                      //                     CommonButton(
+                      //                       onPress: () {
+                      //                         Get.to(WalletSucessesScreen());
+                      //                       },
+                      //                       title: "Balance Withdrawal",
+                      //                     )
+                      //                   ],
+                      //                 ),
                       //               ),
-                      //               SizedBox(height: 16.h,),
-                      //               CustomTextFieldWithImage2(
-                      //                 controller: datecontroller,
-                      //                 hintText: 'DD/MM/YY',
-                      //                 labelText: 'Date Of birth',
-                      //
-                      //               ),
-                      //               SizedBox(height: 16.h,),
-                      //               CommonButton(onPress: (){
-                      //                 Get.to(WalletSucessesScreen());
-                      //               }, title: "Balance Withdrawal")
-                      //             ],
-                      //           ),
-                      //         ),
+                      //             );
+                      //           }
                       //       );
-                      //     });
-                    },
-                    title: "Balance Withdrawal"),
-                SizedBox(
-                  height: 24.h,
-                ),
-              ],
+                      //
+                      //     },
+                      //     title: "Balance Withdrawal"),
+                      // SizedBox(
+                      //   height: 24.h,
+                      // ),
+
+                    })],
             ),
           ),
         ),
@@ -213,4 +221,73 @@ class CustomPayment extends StatelessWidget {
       ],
     );
   }
+}
+
+
+
+Future<void> editIcon(BuildContext context, TextEditingController controller) async {
+  await showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    builder: (BuildContext context) {
+      return Container(
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 40.0),
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+        ),
+        child: SizedBox(
+          height:350,
+          child: Column(
+
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0,
+                    bottom: 50),
+                child: Center(child:  Text('Contact Visa',style: desStyleWithWhite.copyWith(
+                    fontWeight: FontWeight.w400, color: ConstColor.greyColor.value),)),
+              ),
+
+              SimpleCustomTextFieldWithSuffixAssetImage(
+                controller: controller,
+                hintText: 'EmailAddress',
+                labelText: 'EmailAddress',
+                image: 'assets/images/edit_icon.png',
+              ),
+
+              SizedBox(height: 20,),
+              SimpleCustomTextFieldWithSuffixAssetImage(
+                controller: controller,
+                hintText: 'Date',
+                labelText: 'Date',
+                image: 'assets/images/icon_date.svg',
+              ),
+               // Adjust the spacing as needed
+              Padding(
+                padding: const EdgeInsets.only(top: 50.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: CommonButton(
+                        onPress: () {
+                          Get.to(()=>const WalletSucessesScreen());
+                        },
+                        title: 'Balance Withdrawal',
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 }
