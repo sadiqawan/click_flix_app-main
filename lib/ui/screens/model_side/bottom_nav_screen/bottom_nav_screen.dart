@@ -114,6 +114,7 @@
 //   }
 // }
 
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/ui/screens/model_side/bottom_nav_screen/setting_screen/setting_screen.dart';
 import 'package:flutter/material.dart';
@@ -165,15 +166,15 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
+        notchMargin: 7,
 
 color: const Color(0xff333335),
-
-
-
         shape: const CircularNotchedRectangle(),
         child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8)
+          
+          decoration: const BoxDecoration(
+
+            borderRadius: BorderRadius.only(topLeft: Radius.circular(10),topRight: Radius.circular(10))
           ),
           // color: ConstColor.greyColor.value.withOpacity(.3),
           height: 60,
@@ -200,8 +201,7 @@ color: const Color(0xff333335),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-       
-
+      
       floatingActionButton: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
