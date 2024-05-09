@@ -155,7 +155,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
-color: Color(0xff333335),
+color: const Color(0xff333335),
         shape: const CircularNotchedRectangle(),
         child: Container(
            // color: ConstColor.greyColor.value.withOpacity(.3),
@@ -212,7 +212,7 @@ color: Color(0xff333335),
               side: BorderSide(color: Colors.blueAccent)
           ),
           onPressed: () {
-            Get.to(reel_screen());
+            Get.to(()=> const reel_screen());
           },
           child: SvgPicture.asset("assets/svg_images/add.svg",width: 30,height: 30,),
 
