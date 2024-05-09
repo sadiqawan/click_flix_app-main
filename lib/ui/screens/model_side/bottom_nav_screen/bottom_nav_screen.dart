@@ -117,6 +117,7 @@
 import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/ui/screens/model_side/bottom_nav_screen/setting_screen/setting_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -134,12 +135,19 @@ class BottomNavScreen extends StatefulWidget {
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
-  final List<Widget> _pages =   [
+  final List<Widget> _pages = [
     ExploerScreen(),
     ModelsScreen(),
     CastingScreen(),
     SettingScreen(),
   ];
+  final List<String> _pagesScreen = const [
+    'assets/svg_images/explore.svg',
+    'assets/svg_images/model.svg',
+    'assets/svg_images/casting.svg',
+    'assets/svg_images/menu.svg',
+  ];
+
   final List<String> _imagePaths = const [
     'assets/svg_images/explore.svg',
     'assets/svg_images/model.svg',
@@ -147,6 +155,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     'assets/svg_images/menu.svg',
   ];
 
+  final Color _activeColor = Colors.white;
+  final Color _inactiveColor = Colors.grey;
   int _selectedIndex = 0;
 
   @override
@@ -155,20 +165,29 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
       backgroundColor: Colors.black,
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomAppBar(
+<<<<<<< HEAD
 color: const Color(0xff333335),
+=======
+
+        color: Color(0xff333335),
+>>>>>>> a82a59fc9ad8d6ae381330bd481fe74eb021b9bd
         shape: const CircularNotchedRectangle(),
         child: Container(
-           // color: ConstColor.greyColor.value.withOpacity(.3),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8)
+          ),
+          // color: ConstColor.greyColor.value.withOpacity(.3),
           height: 60,
-
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: List.generate(_pages.length, (index) {
               return IconButton(
                 icon: SvgPicture.asset(
-                  _imagePaths[index],
-                  width: 24,
-                  height: 24,
+                  _pagesScreen[index],
+                  width: 26.w,
+                  height: 26.h,
+                  color: _selectedIndex == index ? _activeColor : _inactiveColor,
+
                   // Adjust width and height as needed
                 ),
                 onPressed: () {
@@ -182,40 +201,32 @@ color: const Color(0xff333335),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // floatingActionButton: FloatingActionButton(
-      //
-      //   onPressed: () {
-      //     // Add your onPressed function here
-      //   },
-      //   tooltip: 'Add',
-      //   child: Icon(Icons.add),
-      //   elevation: 2.0,
-      //   shape: const CircleBorder(),
-      // ),
+       
 
       floatingActionButton: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           gradient: LinearGradient(
-              begin:Alignment.topCenter,
-              end:Alignment. bottomCenter,
-              colors: [
-                ConstColor.gradientTwoColor.value,
-                ConstColor.gradientOneColor.value],
-              // Specify your gradient colors
-
-          ),),
-        child: FloatingActionButton(
-
-          backgroundColor: Colors.transparent,
-          shape: const CircleBorder(
-              side: BorderSide(color: Colors.blueAccent)
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              ConstColor.gradientTwoColor.value,
+              ConstColor.gradientOneColor.value
+            ],
+            // Specify your gradient colors
           ),
+        ),
+        child: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          shape: const CircleBorder(side: BorderSide(color: Colors.blueAccent)),
           onPressed: () {
             Get.to(()=> const reel_screen());
           },
-          child: SvgPicture.asset("assets/svg_images/add.svg",width: 30,height: 30,),
-
+          child: SvgPicture.asset(
+            "assets/svg_images/add.svg",
+            width: 30,
+            height: 30,
+          ),
         ),
       ),
     );
