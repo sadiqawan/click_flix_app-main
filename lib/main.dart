@@ -8,7 +8,8 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'controller/AppController.dart';
 
 void main() {
-  runApp(ScreenUtilInit(
+  runApp(
+      ScreenUtilInit(
     designSize: Size(390, 844),
     splitScreenMode: true,
     minTextAdapt: true,

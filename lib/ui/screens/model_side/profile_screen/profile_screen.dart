@@ -364,7 +364,7 @@ class _MyCastingState extends State<MyCasting> {
           final String status = appController.castingData[index]['status'];
 
           return Padding(
-            padding: const EdgeInsets.only(left: 10.0, top: 8, bottom: 10),
+            padding:  EdgeInsets.only(left: 10.0.h, top: 2.h, bottom: 10.h),
             child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -483,7 +483,7 @@ class _MyCastingState extends State<MyCasting> {
                             SizedBox(
                               width: 10,
                             ),
-                            const Text(
+                             Text(
                               'Accepted',
                               style: TextStyle(color: Colors.white),
                             )

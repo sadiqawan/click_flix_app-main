@@ -35,13 +35,13 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(
-            top: height * .052,
-            right: width * .040,
-            left: width * .030,
-          ),
+      body: Padding(
+        padding: EdgeInsets.only(
+          top: height * .052,
+          right: width * .040,
+          left: width * .030,
+        ),
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Row(
@@ -63,15 +63,16 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
                   const SizedBox()
                 ],
               ),
-        
               Padding(
                 padding: EdgeInsets.only(
-                    top: height * .03, left: width * .08, right: width * .06),
+                  top: height * .03,
+                  left: width * .08,
+                  right: width * .06,
+                ),
                 child: Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(bottom: 7.0, left: 25, right: 29),
+                      padding: const EdgeInsets.only(bottom: 7.0, left: 25, right: 29),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -110,109 +111,60 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
                   ],
                 ),
               ),
-              // Padding(
-              //   padding: EdgeInsets.only(
-              //       top: height * .05, left: width * .08, right: width * .06),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //
-              //
-              //       // Column(
-              //       //   crossAxisAlignment: CrossAxisAlignment.center,
-              //       //   children: [
-              //       //     const Icon(
-              //       //       Icons.check_circle_sharp,
-              //       //       color: Colors.red,
-              //       //     ),
-              //       //     const SizedBox(
-              //       //       height: 15,
-              //       //     ),
-              //       //     Text(
-              //       //       'Basic Info',
-              //       //       style: desStyleWithRed,
-              //       //     )
-              //       //   ],
-              //       // ),
-              //       // Expanded(
-              //       //   child: Divider(
-              //       //     color: ConstColor.greyColor.value,
-              //       //     thickness: 1,
-              //       //     indent: 25,
-              //       //     endIndent: 15,
-              //       //   ),
-              //       // ),
-              //       // Column(
-              //       //   crossAxisAlignment: CrossAxisAlignment.center,
-              //       //
-              //       //   children: [
-              //       //     Icon(
-              //       //       Icons.check_circle_sharp,
-              //       //       color: ConstColor.greyColor.value,
-              //       //     ),
-              //       //     const SizedBox(
-              //       //       height: 15,
-              //       //     ),
-              //       //     Text(
-              //       //       'Model Request',
-              //       //       style: desStyle,
-              //       //     )
-              //       //   ],
-              //       // ),
-              //     ],
-              //   ),
-              // ),
               Padding(
                 padding: EdgeInsets.only(
-                    top: height * .03, left: width * .02, right: width * .02),
+                  top: height * .03,
+                  left: width * .02,
+                  right: width * .02,
+                ),
                 child: Container(
                   height: height * .2,
                   width: width,
                   decoration: BoxDecoration(
-                      color: ConstColor.lightblackColor.value,
-                      borderRadius: BorderRadius.circular(20)),
+                    color: ConstColor.lightblackColor.value,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                   child: InkWell(
-                    onTap: (){
+                    onTap: () {
                       showModalBottomSheet(
-                          context: context,
-                          backgroundColor: Colors.transparent,
-                          builder: (BuildContext context) {
-                            return Popover(
-                              child: Container(
-                                height: height / 5,
-                                margin: EdgeInsets.symmetric(horizontal: width / 30),
-                                child: Column(
-                                  children: <Widget>[
-                                    SizedBox(
-                                      height: height / 40,
+                        context: context,
+                        backgroundColor: Colors.transparent,
+                        builder: (BuildContext context) {
+                          return Popover(
+                            child: Container(
+                              height: height / 5,
+                              margin: EdgeInsets.symmetric(horizontal: width / 30),
+                              child: Column(
+                                children: <Widget>[
+                                  SizedBox(
+                                    height: height / 40,
+                                  ),
+                                  ListTile(
+                                    leading: const Icon(
+                                      Icons.camera_alt_outlined,
+                                      color: Color(0xff767676),
                                     ),
-                                    ListTile(
-                                        leading: const Icon(
-                                          Icons.camera_alt_outlined,
-                                          color: Color(0xff767676),
-                                        ),
-                                        title: text(data: 'Camera',f_size: 14,f_weight: FontWeight.w400,color: Colors.black,),
-                                        onTap: (){
-                                          appController.pickImageFrom(ImageSource.camera);
-                                        }),
-                                    ListTile(
-                                      leading: const Icon(
-                                        Icons.perm_media_outlined,
-                                        color: Color(0xff767676),
-                                      ),
-                                      title:  text(data: 'Gallery',f_size: 14,f_weight: FontWeight.w400,color: Colors.black,),
-                                      onTap: (){
-                                        appController.pickImageFrom(ImageSource.gallery);
-
-
-                                      },
+                                    title: text(data: 'Camera', f_size: 14, f_weight: FontWeight.w400, color: Colors.black,),
+                                    onTap: () {
+                                      appController.pickImageFrom(ImageSource.camera);
+                                    },
+                                  ),
+                                  ListTile(
+                                    leading: const Icon(
+                                      Icons.perm_media_outlined,
+                                      color: Color(0xff767676),
                                     ),
-                                  ],
-                                ),
+                                    title: text(data: 'Gallery', f_size: 14, f_weight: FontWeight.w400, color: Colors.black,),
+                                    onTap: () {
+                                      appController.pickImageFrom(ImageSource.gallery);
+                                    },
+                                  ),
+                                ],
                               ),
-                            );
-                          });
-
+                            ),
+                          );
+                        },
+                      );
                     },
                     child: Center(
                       child: Image.asset(
@@ -228,11 +180,7 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
               const SizedBox(
                 height: 5,
               ),
-        
               CustomTextFieldWithImage2(
-                // image: SvgPicture.asset(
-                //   "assets/svg_images/icon_password.svg",
-                // ),
                 labelText: "Title",
                 controller: titleController,
                 hintText: 'Title',
@@ -240,7 +188,6 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
               const SizedBox(
                 height: 5,
               ),
-        
               CustomTextFieldWithImage2(
                 labelText: "Requirement",
                 controller: requirementController,
@@ -252,13 +199,11 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
               CustomTextFieldWithImage2(
                 image: SvgPicture.asset(
                   "assets/svg_images/date_icon.svg",
-
                 ),
                 labelText: "Date",
                 controller: dateController,
                 hintText: 'Date',
               ),
-
               const SizedBox(
                 height: 5,
               ),
@@ -283,17 +228,20 @@ class _BookingTalentScreenState extends State<BookingTalentScreen> {
               const SizedBox(
                 height: 24,
               ),
-        
-              CommonButton(
-                onPress: () {
-                  Get.to(()=> BookingTalentScreen2());
-                },
-                title: 'Next',
-              )
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30.0,),
+                child: CommonButton(
+                  onPress: () {
+                    Get.to(()=> const BookingTalentScreen2());
+                  },
+                  title: 'Next',
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
 }

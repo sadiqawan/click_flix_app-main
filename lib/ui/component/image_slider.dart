@@ -26,9 +26,9 @@ class ImageSlider extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Padding(
-      padding: const EdgeInsets.all(20.0),
+      padding: const EdgeInsets.only(top: 90.0,bottom: 0,left: 10,right: 10),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
@@ -49,8 +49,6 @@ class ImageSlider extends StatelessWidget {
             textAlign: TextAlign.center,
             style:desStyle,
           ),
-          const SizedBox(height: 100),
-
         ],
       ),
     );

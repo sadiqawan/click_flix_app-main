@@ -142,7 +142,7 @@ Widget bottomSheet(BuildContext context, title, location, status, date) {
                   children: [
                     Icon(Icons.pin_drop_outlined,
                         color: ConstColor.lightblackColor.value),
-                    SizedBox(
+                 const    SizedBox(
                       width: 20,
                     ),
                     Text(
@@ -155,7 +155,7 @@ Widget bottomSheet(BuildContext context, title, location, status, date) {
                   children: [
                     Icon(Icons.date_range_outlined,
                         color: ConstColor.lightblackColor.value),
-                    SizedBox(
+                const     SizedBox(
                       width: 20,
                     ),
                     Text(
@@ -168,7 +168,7 @@ Widget bottomSheet(BuildContext context, title, location, status, date) {
                   children: [
                     Icon(Icons.currency_exchange,
                         color: ConstColor.lightblackColor.value),
-                    SizedBox(
+                const     SizedBox(
                       width: 20,
                     ),
                     Text(

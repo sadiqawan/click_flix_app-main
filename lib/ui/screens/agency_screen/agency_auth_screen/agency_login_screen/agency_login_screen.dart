@@ -1,3 +1,4 @@
+import 'package:click_flex_ui/controller/AppController.dart';
 import 'package:click_flex_ui/core/constants/const_colors.dart';
 import 'package:click_flex_ui/core/constants/const_style.dart';
 import 'package:click_flex_ui/ui/screens/model_side/profile_screen/profile_screen.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import '../../../../../core/constants/const_text.dart';
 import '../../../../component/custom_button.dart';
@@ -22,8 +24,11 @@ class AgencyLoginScreen extends StatefulWidget {
 }
 
 class _AgencyLoginScreenState extends State<AgencyLoginScreen> {
+
   @override
   Widget build(BuildContext context) {
+
+
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     final emailController = TextEditingController();
