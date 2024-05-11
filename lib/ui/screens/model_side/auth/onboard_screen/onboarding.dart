@@ -60,13 +60,13 @@ class _OnBoardingState extends State<OnBoarding> {
                       title: 'Create Yor Profile',
                       image: 'assets/images/image_one.png',
                       subtitle:
-                      'add your best photos, details, and  instagram to showcase yourself and get scouted by brands, photographers and agencies',
+                      'Add Your Best Photos, Details, And  Instagram To ShowCase Yourself And Get Scouted By Brands, Photographers And Agencies',
                     ),
                      ImageSlider(
                       title: 'Apply To Casting Offer',
                       image: 'assets/images/image_two.png',
                       subtitle:
-                      'browse hundreds of new jobs every day, apply to as many as you want  and start earning money with your looks',
+                      'Browse Hundreds Of New Jobs Every Day, Apply To As Many As You Want And Start Earning Money With Your Looks',
                     ),
                       ImageSlider(
                       title: 'Connect With Brands',
