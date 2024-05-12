@@ -10,7 +10,7 @@ import 'controller/AppController.dart';
 void main() {
   runApp(
       ScreenUtilInit(
-    designSize: Size(390, 844),
+    designSize: const Size(390, 844),
     splitScreenMode: true,
     minTextAdapt: true,
     builder: (BuildContext context, Widget? child) {

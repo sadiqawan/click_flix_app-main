@@ -49,20 +49,70 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 48.0, bottom: 24),
-                child: SvgPicture.asset("assets/svg_images/message_logo.svg"),
+                child: Image.asset('assets/images/icon_contact.png',height: 100,width: 100,),
               ),
-              InfoContainer(
-                text: 'info@company.com',
-                icon: SvgPicture.asset("assets/svg_images/info_icon.svg"),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
+                  border: Border.all(color: Colors.black), // Border color
+                  color: ConstColor.lightblackColor.value, // Background color
+                ),
+                child: ListTile(
+                  leading: Image.asset(
+                    'assets/images/icon_email.png',
+                    height: 20,
+                    width: 20,
+                  ),
+                  title: Text(
+                    'info@company.com',
+                    style: desStyleWithWhite,
+                  ),
+                ),
               ),
-              InfoContainer(
-                text: '(123)456-7890',
-                icon: SvgPicture.asset("assets/svg_images/call_chat.svg"),
+              SizedBox(height: 10,),
+
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
+                  border: Border.all(color: Colors.black), // Border color
+                  color: ConstColor.lightblackColor.value, // Background color
+                ),
+                child: ListTile(
+                  leading: Image.asset(
+                    'assets/images/Icon_call.png',
+                    height: 20,
+                    width: 20,
+                  ),
+                  title: Text(
+                    '(123)456-7890',
+                    style: desStyleWithWhite,
+                  ),
+                ),
               ),
-              InfoContainer(
-                text: '123 main street (anytown,USA 12345)',
-                icon: SvgPicture.asset("assets/svg_images/street_icon.svg"),
+              SizedBox(height: 10,),
+
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
+                  border: Border.all(color: Colors.black), // Border color
+                  color: ConstColor.lightblackColor.value, // Background color
+                ),
+                child: ListTile(
+                  leading: Image.asset(
+                    'assets/images/icon_email.png',
+                    height: 20,
+                    width: 20,
+                  ),
+                  title: Text(
+                    '123 main street (anytown,USA 12345)',
+                    style: desStyleWithWhite,
+                  ),
+                ),
               ),
+
+
+
+
               Padding(
                 padding: EdgeInsets.symmetric(vertical: height * .040),
                 child: Row(
@@ -99,7 +149,7 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
                 children: [
                   RoundButton(
                     image: SvgPicture.asset(
-                      "assets/svg_images/gray_insta.svg",
+                      "assets/svg_images/Icons_instagram.svg",
                     ),
                   ),
                   RoundButton(
@@ -122,33 +172,3 @@ class _ContactUsScreenState extends State<ContactUsScreen> {
   }
 }
 
-class InfoContainer extends StatelessWidget {
-  SvgPicture icon;
-  String text;
-  InfoContainer({super.key, required this.text, required this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
-      child: Container(
-        padding: EdgeInsets.only(left: 16, top: 8, bottom: 8),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: ConstColor.greyColor.value, width: 1)),
-        child: Row(
-          children: [
-            icon,
-            SizedBox(
-              width: 16,
-            ),
-            Text(
-              text,
-              style: normalStyle,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}

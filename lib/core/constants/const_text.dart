@@ -5,14 +5,14 @@ const String signupDesText =
     "Fill Your Information Below Or Register With Your Social Account";
 const String verifyDesText = "Please Enter The Code We Just Sent To Email";
 const String completeDesText =
-    "don’t worry, only you can see your personal data, ";
+    "Don’t worry, Only You Can See Your Personal Data.";
 const String aboutUsOne =
     "our company offers a wide range of high-quality products and services to meet the needs of our customers.";
 const String aboutUsTwo =
     "our mession is to provide high-quality products and services to our customers";
 const String valueOne = "customer satisfaction is our top priority";
 const String valueTwo = "we strive for continuous improvement";
-const String valueThree = "we value honesty and integrity in all our actions";
+const String valueThree = "we value honesty and integrity in all our\n actions";
 const String historyOne = "founded in 2010";
 const String historyTwo = "started as a  small business with a few employees ";
 const String historyThree =

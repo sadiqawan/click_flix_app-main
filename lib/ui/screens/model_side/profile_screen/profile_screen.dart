@@ -72,11 +72,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   child: SvgPicture.asset(
                                       "assets/svg_images/icon_back.svg"),
                                 ),
-                                SvgPicture.asset(
-                                  "assets/svg_images/icon_solor.svg",
-                                  width: width * .032,
-                                  height: height * .032,
-                                ),
+                                Image.asset('assets/images/icon_share.png',width: width * .050,
+                                  height: height * .050,),
+                                // SvgPicture.asset(
+                                //   "assets/svg_images/icon_solor.svg",
+                                //   width: width * .032,
+                                //   height: height * .032,
+                                // ),
                               ],
                             ),
                             Padding(
@@ -136,10 +138,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         f_size: 18,
                                         color: const Color(0xff333333),
                                         f_weight: FontWeight.w600),
+
                                   ],
+
                                 )
                               ],
                             ),
+
                           ],
                         ),
                       ),
@@ -147,6 +152,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ],
               ),
+            const  SizedBox(height: 20,),
               Padding(
                 padding: EdgeInsets.only(top: 190.h),
                 child: SizedBox(

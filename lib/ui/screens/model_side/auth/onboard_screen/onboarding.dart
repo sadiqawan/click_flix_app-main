@@ -40,12 +40,12 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      // backgroundColor: Colors.black,
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage("assets/images/bg_image.png")
+                image: AssetImage("assets/images/onboarding_screen_background_image.png")
             )
         ),
         child: Padding(
@@ -57,7 +57,7 @@ class _OnBoardingState extends State<OnBoarding> {
                   controller: controller,
                   children: const [
                      ImageSlider(
-                      title: 'Create Yor Profile',
+                      title: 'Create Your Profile',
                       image: 'assets/images/image_one.png',
                       subtitle:
                       'Add Your Best Photos, Details, And  Instagram To ShowCase Yourself And Get Scouted By Brands, Photographers And Agencies',
@@ -111,8 +111,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       controller: controller,
                       count: 3,
                       effect: const SlideEffect(
-                        dotHeight: 8,
-                        dotWidth: 8,
+                        dotHeight: 7,
+                        dotWidth: 6,
                         dotColor: Colors.grey,
                         activeDotColor: Colors.white,
                       ),

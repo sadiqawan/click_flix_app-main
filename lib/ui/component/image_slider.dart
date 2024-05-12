@@ -37,11 +37,7 @@ class ImageSlider extends StatelessWidget {
           ),
           Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
+            style: normalStyle.copyWith(fontSize: 20)
           ),
           const SizedBox(height: 24),
           Text(
@@ -76,7 +72,7 @@ class LastPage extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage("assets/images/bg_image.png")
+            image: AssetImage("assets/images/onboarding_screen_background_image.png")
           )
         ),
         child: Column(

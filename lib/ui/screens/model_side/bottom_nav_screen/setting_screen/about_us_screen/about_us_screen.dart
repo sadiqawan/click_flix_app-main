@@ -133,6 +133,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                               width: 12,
                             ),
                             Text(
+
                               valueThree,
                               style: desStyle,
                             ),

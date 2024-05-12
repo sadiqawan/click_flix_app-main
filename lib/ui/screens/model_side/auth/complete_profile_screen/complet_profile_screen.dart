@@ -42,27 +42,75 @@ class _CompleteProfileScreenScreenState extends State<CompleteProfileScreenScree
               )),
           child: SingleChildScrollView(
             child: Padding(
-              padding:   EdgeInsets.only(left:width*.040,right:width*.040,top: 106 ),
+              padding:   EdgeInsets.only(left:width*.040,right:width*.040,top: 90 ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Complete Your Profile !",
-                    style: mediumStyle.copyWith(fontWeight: FontWeight.w600),
-                  ),
-                  Padding(
-                    padding:   EdgeInsets.only(top:height*.008),
+                  Align(
+                    alignment: Alignment.centerLeft,
                     child: Text(
-                      completeDesText,
-                      style: desStyle,
+                      "Complete Your Profile !",
+                      style: mediumStyle.copyWith(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+
+                    child: Padding(
+                      padding:   EdgeInsets.only(top:height*.008),
+                      child: Text(
+                        completeDesText,
+                        style: desStyle,
+                      ),
                     ),
                   ),
                   SizedBox(
                     height:40.h,
                   ),
 
-SvgPicture.asset("assets/svg_images/profile_bg.svg"),
+                  Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          // gradient: const LinearGradient(
+                          //   colors: [Color(0xffA513B8), Color(0xffEA3B12)],
+                          // ),
+                            borderRadius: BorderRadius.circular(100),
+                            border: Border.all(color: Colors.white24)),
+                        child: const Padding(
+                          padding: EdgeInsets.all(6.0),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.black38,
+                            radius: 60,
+                            backgroundImage: AssetImage(
+                              'assets/images/icons_person.png',
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 98,
+                        left: 100,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            // gradient: const LinearGradient(
+                            //   colors: [Color(0xffA513B8), Color(0xffEA3B12)],
+                            // ),
+                              borderRadius: BorderRadius.circular(80),
+                              color: Colors.black,
+                              border: Border.all(color: Colors.white24)),
+                          child: Padding(
+                            padding: const EdgeInsets.all(7.0),
+                            child: Image.asset(
+                              'assets/images/edit_icon.png',
+                              height: 17,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
 
                   // const Row(
                   //   children: [
